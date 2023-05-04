@@ -1,0 +1,21 @@
+Electron 
+Elizabeth Paperno 
+Jeffery Tang 
+Kevin Li
+Abid Talukder
+pd 7 
+
+elizabethP -- 2023-05-03 17:00
+--------------------------------------------------------------
+- work on design doc
+- feedback: 
+    - clarify the visualizations page
+    - clarify what saved/visited resturants are, 
+    - possibly change db structure
+    - figure what exact data will be displayed
+- changes: 
+    - fix program components to add file routes
+    - add bootstrap to FEF
+    - clarify visualizations
+    - decided against changing db struc + dashboard
+    - upadte what data will expressed when we figure that out
