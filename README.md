@@ -1,4 +1,4 @@
-#  __ by Where Are The Electrons?
+#  Restaurant Surfer by Where Are The Electrons?
 ## PM: Elizabeth Paperno
 ## Devo: Jeffery Tang 
 ## Devo: Kevin Li
