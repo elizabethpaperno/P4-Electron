@@ -19,3 +19,8 @@ elizabethP -- 2023-05-03 17:00
     - clarify visualizations
     - decided against changing db struc + dashboard
     - upadte what data will expressed when we figure that out
+
+elizabethP -- 2023-05-04 1:10
+--------------------------------------------------------------
+- add basic code to interact w/ sqlite --> db.py
+- add python code for allowing users to register and login --> auth.py
