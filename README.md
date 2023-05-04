@@ -5,9 +5,13 @@
 ## Devo: Abid Talukder
 
 ## Summary
-
+Restaurant Surfers incorporates datasets about restaurants to provide users the ability to find their dream restaurant. Users can filter by food type, seating availabily, dietary restrictions, and more. Users can also view restaurants on an embedded map and read reviews from Yelp as well as publishing their own reviews. 
 ## APIs
-
+- [Embedded Google Maps API](https://developers.google.com/maps/documentation/embed/get-started)
+## Datasets
+- [Yelp](https://www.yelp.com/dataset/documentation/main)
+- [Active alcohol permits](https://data.ny.gov/Economic-Development/Liquor-Authority-Current-List-of-Active-Licenses/hrvs-fxs2/data)
+- [NYC Sanitation Grades](https://data.cityofnewyork.us/Health/Restaurant-Grades/gra9-xbjk/data)
 ## How to Clone, Install, and Run
 
 `0) Create and activate an environment`
