@@ -24,3 +24,12 @@ elizabethP -- 2023-05-04 1:10
 --------------------------------------------------------------
 - add basic code to interact w/ sqlite --> db.py
 - add python code for allowing users to register and login --> auth.py
+
+kevinL -- 2023-05-04 13:17
+--------------------------------------------------------------
+- add flask app and a template to be rendered when run 
+- add basic js script
+
+abidT -- 2023-05-04 13:17
+--------------------------------------------------------------
+- add login page html and css
