@@ -33,3 +33,8 @@ kevinL -- 2023-05-04 13:17
 abidT -- 2023-05-04 13:17
 --------------------------------------------------------------
 - add login page html and css
+
+jefferyT and kevinL -- 2023-05-05 13:23
+--------------------------------------------------------------
+- started linking pages together
+- created main.html. signup.html
