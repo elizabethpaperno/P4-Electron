@@ -38,3 +38,8 @@ jefferyT and kevinL -- 2023-05-05 13:23
 --------------------------------------------------------------
 - started linking pages together
 - created main.html. signup.html
+
+kevinL -- 2023-05-07 20:28
+--------------------------------------------------------------
+- fixed issue with redirects not working
+- adjusted functions in db.py and auth.py

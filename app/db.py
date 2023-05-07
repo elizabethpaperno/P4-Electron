@@ -1,12 +1,12 @@
 import sqlite3
 
-def get_connection():
-    conn = sqlite3.connect("app/db/db")
+def get_connection(db):
+    conn = sqlite3.connect(db)
     return conn
 
 
-def query_db(query, args=(), all=False):
-    conn = get_connection()
+def query_usersdb(query, args=(), all=False):
+    conn = get_connection("users.db")
 
     with conn:
         cur = conn.cursor()
