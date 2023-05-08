@@ -10,10 +10,16 @@ from flask import request
 from flask import session           
 from flask import redirect, url_for 
 from auth import *
+from db import *
+import os
+
 
 app = Flask(__name__) #create instance of class Flask
+app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
 
-createUsersTable()
+@app.route('/main')
+def main():
+    return render_template('main.html')
 
 @app.route("/")       #assign fxn to route
 def hello_world():
@@ -23,14 +29,14 @@ def hello_world():
 
 @app.route('/login_user', methods = ["POST"])
 def login():
-    if checkCreds(request.form['username'], request.form['password']):
-        return redirect("main")
+    username = request.form['username']
+    password = request.form['password']
+    if checkCreds(username, password):
+        session["username"]= username
+        return redirect(url_for('main'))
+    else: 
+        return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
-
-@app.route('/signup', methods = ["GET", "POST"])
-def show_signup():
-    print("hi")
-    return render_template('signup.html')
 
 @app.route('/create_user', methods = ["POST"])
 def create_user():
@@ -38,13 +44,16 @@ def create_user():
     password = request.form['password']
     if checkUsernameAvailability(username):
         addNewUser(username, password)
+        return render_template('signup.html', error = "Successfully created account")
     else:
         return render_template('signup.html', error = "Username already exists.")
 
-@app.route('/main')
-def main():
-    return render_template('main.html')
+@app.route('/signup', methods = ["GET", "POST"])
+def show_signup():
+    print("hi")
+    return render_template('signup.html')
 
-if __name__ == "__main__":  # true if this file NOT imported
+if __name__ == "__main__": # true if this file NOT imported
+    createUsersTable() 
     app.debug = True        # enable auto-reload upon code change
     app.run()

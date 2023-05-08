@@ -1,9 +1,17 @@
-Electron 
-Elizabeth Paperno 
-Jeffery Tang 
-Kevin Li
-Abid Talukder
+Electron: 
+Elizabeth Paperno, Jeffery Tang , Kevin Li, Abid Talukder
 pd 7 
+
+PROJ 04 Datasets - Resturants Surfer
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_/   \_____\/ \_____\/ \_____\/
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 elizabethP -- 2023-05-03 17:00
 --------------------------------------------------------------
@@ -43,3 +51,23 @@ kevinL -- 2023-05-07 20:28
 --------------------------------------------------------------
 - fixed issue with redirects not working
 - adjusted functions in db.py and auth.py
+
+jefferyT -- 2023-05-08 12:50
+--------------------------------------------------------------
+- requirements.txt functional
+
+elizabethP -- 2023-05-08 13:13
+--------------------------------------------------------------
+- fixed issue with key errors in form 
+- login and signup page working
+- begin working with the yelp database to filter data and extract useful data
+
+abidT -- 2023-05-08 13:17
+--------------------------------------------------------------
+- worked on redirect function in flask. Had to rearrange the main function to be at the top
+- redirect function needed the url_for function as an input before passing the str "main"
+
+kevinL -- 2023-05-08 13:17
+--------------------------------------------------------------
+- added secret key
+- fixed button on registration page so it redirects to the login page
