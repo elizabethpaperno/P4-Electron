@@ -71,3 +71,9 @@ kevinL -- 2023-05-08 13:17
 --------------------------------------------------------------
 - added secret key
 - fixed button on registration page so it redirects to the login page
+
+jefferyT -- 2023-05-08 12:50
+--------------------------------------------------------------
+- Added db tables
+- imported json database and logged it in console
+- attempted to use sql3 in js
