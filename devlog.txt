@@ -89,3 +89,8 @@ abidT -- 2023-05-09 13:15
 - created the basic templates for the profile page and dashboard page
 - designed user profile picture icon template
 - designed how the filters for restaurants and filter preferences would look
+
+jefferyT -- 2023-05-10 15:00
+--------------------------------------------------------------
+- Obtained more data from alcohol.py and sanitation.py and created get function
+- Worked on incorporating dataset data into database
