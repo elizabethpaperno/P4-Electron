@@ -1,6 +1,6 @@
 import sqlite3
-from alcohol import *
-from sanitation import *
+# from alcohol import *
+# from sanitation import *
 
 def get_connection(db):
     conn = sqlite3.connect(db)
@@ -26,14 +26,4 @@ c = db.cursor()
 c.execute("""CREATE TABLE IF NOT EXISTS users(username TEXT UNIQUE, password TEXT, r_saved TEXT, r_visited TEXT, reviews TEXT, f_cat LIST, location TEXT, b_pref DICT, a_pref BOOL, s_pref TEXT, d_res LIST)""")
 c.execute("""CREATE TABLE IF NOT EXISTS retuarants(name TEXT, address TEXT, takeout BOOL, parking BOOL, cat LIST, hours DICT, reviews DICT, alcohol BOOL, s_grade TEXT, seating TEXT, diet LIST, u_reviews LIST)""")
 
-# def get_alcohol():
-#     res = c.execute("SELECT address FROM restuarants")
-#     alc = get_address()
-
-#     #print(alc)
-
-#     for r in res:
-#         if(r in alc):
-#             c.execute("""UPDATE customers SET alcohol = False WHERE address = r""")
-#         else:
 
