@@ -84,6 +84,14 @@ jefferyT -- 2023-05-09 15:00
 - imported json Datasets
 - parsed sanitation dataset to get dba, grade, and violation
 
+elizabethP -- 2023-05-09 14:00
+--------------------------------------------------------------
+DATA CONDUIT Approach: 
+- Read json files into sql databases using sqlite and the json module
+- Proper data will be returned by calling functions written in python scripts (auth.py, yelp.py, sanitation.py, alcohol.py, db.py) that query sql databases
+- Use jinja templates to fill front end with proper data 
+- The template will be used to reveal this data with proper user actions
+
 abidT -- 2023-05-09 13:15
 --------------------------------------------------------------
 - created the basic templates for the profile page and dashboard page
@@ -94,3 +102,9 @@ jefferyT -- 2023-05-10 15:00
 --------------------------------------------------------------
 - Obtained more data from alcohol.py and sanitation.py and created get function
 - Worked on incorporating dataset data into database
+
+elizabethP -- 2023-05-11 22:56
+--------------------------------------------------------------
+- worked to transform json file to proper format to make it readable --> having difficulty 
+- updated yelp.py 
+- worked on restructuring auth.py
