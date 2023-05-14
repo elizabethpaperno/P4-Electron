@@ -108,3 +108,8 @@ elizabethP -- 2023-05-11 22:56
 - worked to transform json file to proper format to make it readable --> having difficulty 
 - updated yelp.py 
 - worked on restructuring auth.py
+
+kevinL -- 2023-14-23 19:55
+--------------------------------------------------------------
+- added survey.html 
+- added survey.js with a method that allows you to add MCQ questions
