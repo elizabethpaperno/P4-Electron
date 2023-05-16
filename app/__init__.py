@@ -11,6 +11,10 @@ from flask import session
 from flask import redirect, url_for 
 from auth import *
 from db import *
+try:
+    from db import query_usersdb
+except:
+    from db import query_usersdb
 import os
 
 
@@ -52,6 +56,29 @@ def create_user():
 def show_signup():
     print("hi")
     return render_template('signup.html')
+
+@app.route('/survey', methods = ["POST"])
+def survey():
+    f_cat = request.form['f_cat']
+    location = request.form['location']
+    a_pref = request.form['a_pref']
+    s_pref = request.form['s_pref']
+    d_res = request.form['d_res']
+
+    query_usersdb(f"""UPDATE users SET f_cat = ?, location = ?, a_pref = ?, s_pref = ?, d_res = ? WHERE username = ?;""", f_cat, location, a_pref, s_pref, d_res, session["username"])
+
+# @app.route('/get_restaurants', methods = ["POST"])
+# def get_restaurants():
+#     name_address = query_usersdb(f"""SELECT name, address FROM restaurants WHERE cat = ?, alcohol = ?, diet != ?;""", )
+
+@app.route('/add_review', methods = ["POST"])
+def add_review():
+    r_address = request.form['r_address']
+    review = request.form['review']
+    current_reviews = query_usersdb(f"""SELECT u_reviews FROM restaurants WHERE address = ?""", r_address)
+    new_reviews = current_reviews.append(review)
+
+    query_usersdb(f"""UPDATE restaurants SET u_reviews = ? WHERE address = ?;""", new_reviews, r_address)
 
 if __name__ == "__main__": # true if this file NOT imported
     createUsersTable() 

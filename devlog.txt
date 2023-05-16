@@ -109,11 +109,22 @@ elizabethP -- 2023-05-11 22:56
 - updated yelp.py 
 - worked on restructuring auth.py
 
-kevinL -- 2023-14-23 19:55
+kevinL -- 2023-05-14 19:55
 --------------------------------------------------------------
 - added survey.html 
 - added survey.js with a method that allows you to add MCQ questions
 
-kevinL -- 2023-15-23 23:51
+jefferyT -- 2023-05-15 15:00
+--------------------------------------------------------------
+- started html page to display restaurants in user's saved list
+- started js for aforementioned page
+
+kevinL -- 2023-05-15 23:51
 --------------------------------------------------------------
 - updated main.html with a basic leaflet map
+
+jefferyT -- 2023-05-16 13:20
+--------------------------------------------------------------
+- created function to update database based on survey
+- created function to add restaurant to user restuarant list in database
+- created function to add user review to list to reviews in database

@@ -34,7 +34,7 @@ def alcohol_yn():
     i = 0
     while (i < res.len()):
         if(res[i] in alc_dict['address'][i]):
-            query_usersdb(f"""UPDATE customers SET alcohol = ? WHERE address = ?;""", True, res[i])
-            query_usersdb(f"""UPDATE customers SET mode = ? WHERE address = ?;""", alc_dict['mode'][i], res[i])
+            query_usersdb(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", True, res[i])
+            query_usersdb(f"""UPDATE restaurants SET mode = ? WHERE address = ?;""", alc_dict['mode'][i], res[i])
         else:
-            query_usersdb(f"""UPDATE customers SET alcohol = ? WHERE address = ?;""", False, res[i])
+            query_usersdb(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", False, res[i])
