@@ -109,17 +109,18 @@ elizabethP -- 2023-05-11 22:56
 - updated yelp.py 
 - worked on restructuring auth.py
 
-kevinL -- 2023-05-14 19:55
+kevinL -- 2023-14-23 19:55
 --------------------------------------------------------------
 - added survey.html 
 - added survey.js with a method that allows you to add MCQ questions
 
-jefferyT -- 2023-05-15 15:00
+elizabethP -- 2023-05-14 22:58
 --------------------------------------------------------------
-- started html page to display restaurants in user's saved list
-- started js for aforementioned page
+- switched to using yelp API as yelp dataset does not include NYC area
+- successfuly got around yelpAPI limitations to pull all data for Manhattan restaurants and place it into a dataframe
+- discovered the pickle library to run this quickly
 
-kevinL -- 2023-05-15 23:51
+kevinL -- 2023-15-23 23:51
 --------------------------------------------------------------
 - updated main.html with a basic leaflet map
 
@@ -128,3 +129,8 @@ jefferyT -- 2023-05-16 13:20
 - created function to update database based on survey
 - created function to add restaurant to user restuarant list in database
 - created function to add user review to list to reviews in database
+
+elizabethP -- 2023-05-16 19:42
+--------------------------------------------------------------
+- started working on fuctions to pull needed data from yelp df --> plan to finish this tomorrow
+- next will work on drawing graphs from the data
