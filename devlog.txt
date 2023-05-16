@@ -113,3 +113,7 @@ kevinL -- 2023-14-23 19:55
 --------------------------------------------------------------
 - added survey.html 
 - added survey.js with a method that allows you to add MCQ questions
+
+kevinL -- 2023-15-23 23:51
+--------------------------------------------------------------
+- updated main.html with a basic leaflet map
