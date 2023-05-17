@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 ## Define function to gather keys:
-with open("app/keys/key_api1") as f:
+with open("keys/key_api1") as f:
     API_KEY_ID = f.read().strip()
 
 url = "https://api.yelp.com/v3/businesses/search"
