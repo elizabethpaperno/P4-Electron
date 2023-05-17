@@ -1,7 +1,7 @@
-#try:
-    #from db import query_db
-#except:
-    #from db import query_db
+try:
+    from db import query_db
+except:
+    from db import query_db
 import db
 #add other cols later
 def createUsersTable(): 
@@ -28,6 +28,9 @@ def deleteUser(username):
 def getUserPassword(username):
     password = db.query_db("SELECT password FROM users WHERE username = ?", (username,))
     return password
+
+def updatePrefs(f_cat, location, a_pref, s_pref, d_res, username):
+    query_db(f"""UPDATE users SET f_cat = ?, location = ?, a_pref = ?, s_pref = ?, d_res = ? WHERE username = ?;""", f_cat, location, a_pref, s_pref, d_res, username)
     
 # LINES BELOW ONLY GET RUN IF "EXPLICITY RAN" with `python app/auth.py`
 if __name__ == "__main__":

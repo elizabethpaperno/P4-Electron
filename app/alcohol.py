@@ -1,8 +1,8 @@
 import json
 try:
-    from db import query_usersdb
+    from db import query_db
 except:
-    from db import query_usersdb
+    from db import query_db
 
 #open JSON as Python dict
 alcohol = open('app/datasets/alcohol.json')
@@ -29,12 +29,12 @@ def get_adict():
 
 #checks if each restaurant in database is liscensed to sell alcohol
 def alcohol_yn():
-    res = query_usersdb("SELECT address FROM restuarants")
+    res = query_db("SELECT address FROM restuarants")
 
     i = 0
     while (i < res.len()):
         if(res[i] in alc_dict['address'][i]):
-            query_usersdb(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", True, res[i])
-            query_usersdb(f"""UPDATE restaurants SET mode = ? WHERE address = ?;""", alc_dict['mode'][i], res[i])
+            query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", True, res[i])
+            query_db(f"""UPDATE restaurants SET mode = ? WHERE address = ?;""", alc_dict['mode'][i], res[i])
         else:
-            query_usersdb(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", False, res[i])
+            query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", False, res[i])

@@ -1,8 +1,8 @@
 import json
 try:
-    from db import query_usersdb
+    from db import query_db
 except:
-    from db import query_usersdb
+    from db import query_db
 
 #open JSON as Python dict
 sanitation = open('app/datasets/sanitation.json')
@@ -30,16 +30,16 @@ def get_sdict():
     return san_dict
 
 def res_grade():
-    res = query_usersdb("SELECT address FROM restuarants")
+    res = query_db("SELECT address FROM restuarants")
 
     i = 0
     while (i < res.len()):
         if(res[i] in san_dict['address'][i]):
-            query_usersdb(f"""UPDATE restuarants SET s_grade = ? WHERE address = ?;""", san_dict['grade'][i], res[i])
+            query_db(f"""UPDATE restuarants SET s_grade = ? WHERE address = ?;""", san_dict['grade'][i], res[i])
 
 def res_vio():
-    res = query_usersdb("SELECT address FROM restuarants")
+    res = query_db("SELECT address FROM restuarants")
 
     i = 0
     while (i < res.len()):
-        query_usersdb(f"""UPDATE restuarants SET vio = ? WHERE address = ?;""", san_dict['vio'][i], res[i])
+        query_db(f"""UPDATE restuarants SET vio = ? WHERE address = ?;""", san_dict['vio'][i], res[i])

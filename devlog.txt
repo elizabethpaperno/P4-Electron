@@ -127,10 +127,17 @@ kevinL -- 2023-15-23 23:51
 jefferyT -- 2023-05-16 13:20
 --------------------------------------------------------------
 - created function to update database based on survey
-- created function to add restaurant to user restuarant list in database
+- created function to get restaurants that match user preferences
 - created function to add user review to list to reviews in database
 
 elizabethP -- 2023-05-16 19:42
 --------------------------------------------------------------
 - started working on fuctions to pull needed data from yelp df --> plan to finish this tomorrow
 - next will work on drawing graphs from the data
+
+jefferyT -- 2023-05-17 13:20
+--------------------------------------------------------------
+- created functions to add/remove restaurants from the user's lists of saved and visited restaurants
+- completed function to get restaurants that match user preferences
+- changed query_usersdb to query_db to fix Instructor Mykolyk's issue
+- being moving db calls into auth.py
