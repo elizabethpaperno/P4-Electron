@@ -1,4 +1,3 @@
-
 import json
 import requests
 import pickle
@@ -23,7 +22,7 @@ neighborhoods = ['Midtown West', 'Greenwich Village', 'East Harlem', 'Upper East
                 'Lower East Side', 'Hell\s Kitchen', 'Central Park']
 
 def getYelpDB():
-    '''
+    '''    
     nyc = [[] for i in range(len(neighborhoods))]
 
     #Function to draw in data for each neighborhood:
@@ -84,7 +83,7 @@ def getYelpDB():
 
     with open ('data.pickle','wb')as f:
         pickle.dump(df, f)
-    '''
+    
     with open ('data.pickle','rb') as f:
         df = pickle.load(f)
 
@@ -155,18 +154,19 @@ def getYelpDB():
 
     with open ('scrubbed_data.pickle','wb')as f:
         pickle.dump(df_filtered, f)
-
+    '''
     with open ('scrubbed_data.pickle','rb') as f:
         df_filtered = pickle.load(f)
     return df_filtered
 
-df = getYelpDB()
-print(len(df))
-#print(df.info())
-#print(df.count())
-print(df.head())
-print(list(df.columns.values))
-print(df["categories_clean"])
+# df = getYelpDB()
+# print(len(df))
+
+# print(df.count())
+# print(df.head())
+# print(list(df.columns.values))
+# print(df["categories_clean"])
+
 def getName(df, address):
     df_filt = df[df["address"] == address]
     return (df.iloc[0]['name'])
@@ -175,7 +175,7 @@ def getRating(df, address):
     df_filt = df[df["address"] == address]
     return (df.iloc[0]['rating'])
 
-def getCategory(df, address): 
+def getListCategories(df, address): 
     df_filt = df[df["address"] == address]
     return (df.iloc[0]['categories_clean'])
 
@@ -186,10 +186,29 @@ def getPrice(df, address):
     else: 
         return ("price not available")
 
-#def getFullFormattedAddress(address):
+def getFullFormattedAddress(df,address):
+    df_filt = df[df["address"] == address]
+    state = df.iloc[0]['state']
+    city = df.iloc[0]['city']
+    zip = df.iloc[0]['zip_code']
+    return (address + ", " + city + ", " + state + zip)
 
+def getImgUrl(df,address):
+    df_filt = df[df["address"] == address]
+    return (df.iloc[0]['image_url'])
+
+def getListAllAddresses(df):
+    return(df["address"].values.tolist())
+
+#def getDelieveryYN(df, address)
+#def get
 df = getYelpDB()
+#print(df.info())
+#print(list(df.columns.values))
 print(getName(df, "1290 Amsterdam Ave"))
 print(getRating(df, "1290 Amsterdam Ave"))
-print(getCategory(df, "1290 Amsterdam Ave"))
+print(getListCategories(df, "1290 Amsterdam Ave"))
 print(getPrice(df,"1290 Amsterdam Ave"))
+print(getFullFormattedAddress(df, "1290 Amsterdam Ave"))
+print(getImgUrl(df,"1290 Amsterdam Ave"))
+#print(getListAllAddresses(df))
