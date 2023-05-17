@@ -23,7 +23,6 @@ app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for inter
 
 @app.route('/main')
 def main():
-
     return render_template('dashboard.html')
 
 @app.route("/")       #assign fxn to route
@@ -58,15 +57,16 @@ def show_signup():
     print("hi")
     return render_template('signup.html')
 
-@app.route('/survey', methods = ["POST"])
+@app.route('/survey', methods = ["GET", "POST"])
 def survey():
-    f_cat = request.form['f_cat']
-    location = request.form['location']
-    a_pref = request.form['a_pref']
-    s_pref = request.form['s_pref']
-    d_res = request.form['d_res']
-
-    query_usersdb(f"""UPDATE users SET f_cat = ?, location = ?, a_pref = ?, s_pref = ?, d_res = ? WHERE username = ?;""", f_cat, location, a_pref, s_pref, d_res, session["username"])
+    if (request.method == "POST")
+        f_cat = request.form['f_cat']
+        location = request.form['location']
+        a_pref = request.form['a_pref']
+        s_pref = request.form['s_pref']
+        d_res = request.form['d_res']
+        query_usersdb(f"""UPDATE users SET f_cat = ?, location = ?, a_pref = ?, s_pref = ?, d_res = ? WHERE username = ?;""", f_cat, location, a_pref, s_pref, d_res, session["username"])
+    return render_template("survey.html")
 
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():

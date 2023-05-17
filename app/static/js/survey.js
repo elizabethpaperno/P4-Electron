@@ -13,7 +13,7 @@ function addQuestionText(question) {
     return quiz.lastElementChild
 }
 
-function addMCQ(question, dict) {
+function addMCQ(question, name, dict) {
     //get the question
     question = addQuestionText(question)
     //create and append a line break
@@ -26,9 +26,10 @@ function addMCQ(question, dict) {
         //create and append a radio button for each MCQ option
         id = quiz.childElementCount + "-" + i
         radioButton = document.createElement("input")
+        radioButton.setAttribute("required", "true")
         radioButton.setAttribute("type", "radio")
         radioButton.setAttribute("id", id)
-        radioButton.setAttribute("name", "q" + quiz.childElementCount)
+        radioButton.setAttribute("name", name)
         //set the value of the radio button
         radioButton.setAttribute("value", dict[keys[i]])
         question.appendChild(radioButton)
@@ -49,24 +50,29 @@ function addMCQ(question, dict) {
     question.appendChild(br)
 }
 
-function addRanking(question, dict) {
+function addText(question, name) {
     //get the question
     question = addQuestionText(question)
     //create and append a line break
     br = document.createElement("br")
     question.appendChild(br)
-    //get a list of keys in the dictionary
-    keys = Object.keys(dict)
+
+    textInput = document.createElement("input")
+    textInput.setAttribute("required", "true")
+    textInput.setAttribute("type", "text")
+    textInput.setAttribute("name", name)
+    question.appendChild(textInput)
 }
+    
 
 
 
-addMCQ("Who are you?", {
+addMCQ("Who are you?", "hamlet", {
     "To be or not to be?" : "That is the question",
     "Whether tis nobler in the mind" : "To suffer the slings and arrows of outrageous fortune"
 })
 
-addMCQ("What's your favorite fruit?", {
+addMCQ("What's your favorite fruit?", "hamlet2", {
     "I like apples" : "apples",
     "Blueberries are cool" : "Blueberries",
     "Dragonfruits look awesome" : "Dragonfruit"
