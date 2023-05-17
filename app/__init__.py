@@ -23,7 +23,8 @@ app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for inter
 
 @app.route('/main')
 def main():
-    return render_template('main.html')
+
+    return render_template('dashboard.html')
 
 @app.route("/")       #assign fxn to route
 def hello_world():
