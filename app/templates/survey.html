@@ -1,13 +1,15 @@
 <html>
     <body>
         <h2>Preferences Quiz</h2>
-        <form action="/survey" class="survey" method="POST">
+        <form action="/survey" id="survey" method="POST">
             <ol id="questions">
 
             </ol>
 
             <button type="submit"> Submit </button>
         </form>
+
+        {{error}}
 
         <script src = "../static/js/survey.js"></script>
     </body>

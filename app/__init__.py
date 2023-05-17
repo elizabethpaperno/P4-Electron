@@ -11,10 +11,6 @@ from flask import session
 from flask import redirect, url_for 
 from auth import *
 from db import *
-try:
-    from db import query_usersdb
-except:
-    from db import query_usersdb
 import os
 
 
@@ -36,8 +32,12 @@ def login():
     username = request.form['username']
     password = request.form['password']
     if checkCreds(username, password):
-        session["username"]= username
-        return redirect(url_for('main'))
+        session["username"] = username
+
+        if not checkPrefs(username):
+            return redirect("/survey")
+        else:
+            return redirect(url_for('main'))
     else: 
         return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
@@ -48,7 +48,7 @@ def create_user():
     password = request.form['password']
     if checkUsernameAvailability(username):
         addNewUser(username, password)
-        return render_template('signup.html', error = "Successfully created account")
+        return render_template('signup.html', error = "Account successfully created.")
     else:
         return render_template('signup.html', error = "Username already exists.")
 
@@ -57,31 +57,38 @@ def show_signup():
     print("hi")
     return render_template('signup.html')
 
+#retrieves user preferences from survey and updates them in the database
 @app.route('/survey', methods = ["GET", "POST"])
 def survey():
-    if (request.method == "POST")
-        f_cat = request.form['f_cat']
+    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference']
+    if (request.method == "POST"):
+        print(request.form)
+        for question in questionsAsked:
+            if question not in request.form:
+                print("no answer given for " + question)
+                return render_template("survey.html", error = "please fill out the entire form")
+            if request.form['location'].strip() == "":
+                return render_template("survey.html", error = "please fill out the entire form")
+            
+        #convert to dictionary so that we can get more than 1 value out of food_category
+        dictionary = dict(request.form)
+        print(dictionary)
+
+        f_cat = request.form['food_category']
         location = request.form['location']
-        a_pref = request.form['a_pref']
-        s_pref = request.form['s_pref']
-        d_res = request.form['d_res']
-        query_usersdb(f"""UPDATE users SET f_cat = ?, location = ?, a_pref = ?, s_pref = ?, d_res = ? WHERE username = ?;""", f_cat, location, a_pref, s_pref, d_res, session["username"])
+        a_pref = request.form['alcohol_preference']
+        s_pref = request.form['sanitation_preference']
+
+        print("f_cat: " + f_cat)
+
+        updatePrefs(f_cat, location, a_pref, s_pref, session["username"])
+        return redirect("/main")
+
     return render_template("survey.html")
 
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():
 #     name_address = query_usersdb(f"""SELECT name, address FROM restaurants WHERE cat = ?, alcohol = ?, diet != ?;""", )
-
-#retrieves user preferences from survey and updates them in the database
-@app.route('/survey', methods = ["POST"])
-def survey():
-    f_cat = request.form['f_cat']
-    location = request.form['location']
-    a_pref = request.form['a_pref']
-    s_pref = request.form['s_pref']
-    d_res = request.form['d_res']
-
-    updatePrefs(f_cat, location, a_pref, s_pref, d_res, session["username"])
 
 #retrieves user preferences from database and returns a list of restaurant names and address that match aforementioned preferences
 @app.route('/get_restaurants', methods = ["POST"])
@@ -146,5 +153,6 @@ def remove_visit():
 
 if __name__ == "__main__": # true if this file NOT imported
     createUsersTable() 
+    print("users table created")
     app.debug = True        # enable auto-reload upon code change
     app.run()

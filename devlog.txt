@@ -141,3 +141,11 @@ jefferyT -- 2023-05-17 13:20
 - completed function to get restaurants that match user preferences
 - changed query_usersdb to query_db to fix Instructor Mykolyk's issue
 - being moving db calls into auth.py
+
+kevinL -- 2023-05-17 19:31
+--------------------------------------------------------------
+- linked the preferences survey to login
+- created a new table for preferences in P4.db 
+- split users table into two tables 
+- added functions into auth.py for handing the preferences table
+- fixed an issue with updatePrefs()
