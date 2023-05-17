@@ -61,7 +61,7 @@ def show_signup():
 @app.route('/survey', methods = ["GET", "POST"])
 def survey():
     questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference']
-    if (request.method == "POST"):
+    if (request.method == "POST") and not checkPrefs():
         print(request.form)
         for question in questionsAsked:
             if question not in request.form:
