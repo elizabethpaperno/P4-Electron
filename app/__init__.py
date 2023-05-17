@@ -79,8 +79,6 @@ def survey():
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
 
-        print("f_cat: " + f_cat)
-
         updatePrefs(f_cat, location, a_pref, s_pref, session["username"])
         return redirect("/main")
 
