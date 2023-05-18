@@ -1,6 +1,13 @@
   var geocoder;
   var map;
-  function initialize() { // create map
+  async function initialize() { // create map
+    // Request needed libraries.
+  const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+    "marker"
+  );
+    
+    
     const newYork = { lat: 40.7128, lng: -74.0060}; // nyc is center of the map
     //const myLatLng1 = { lat: 40.7278, lng: -74.0138 };
     //const myLatLng2 = { lat: 40.7378, lng: -74.0138 };
@@ -15,22 +22,35 @@
     map = new google.maps.Map(document.getElementById('map'), mapOptions); // create map
     map.setOptions({ styles: styles["hide"] }); //hide annoying map features
     
-    codeAddress(school)
+    var a = codeAddress(school)
+    a.addEventListener("click", blah);
+    //console.log(a.getClickable())
+  }
+  
+  var blah = () => {
+    console.log("clicked")
   }
 
   function codeAddress(point) {
     var address = point;
-    geocoder.geocode( { 'address': address}, function(results, status) {
+    var marker;
+    marker = geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
-        return marker = new google.maps.Marker({
+        var a = new google.maps.Marker({
             map: map,
-            position: results[0].geometry.location
+            position: results[0].geometry.location,
+            optimized: false
         });
+        //a.setClickable(true)
+        return a;
+        
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        console.log('Geocode was not successful for the following reason: ' + status);
       }
     });
+    //console.log(typeof marker)
+    return marker;
   }
   
   const styles = {
@@ -48,7 +68,7 @@
     ],
   };
   
-  window.initMap = initMap;
+  window.initMap = initialize;
 
   // Restaurant Data Holder
   class Restaurant {
