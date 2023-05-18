@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 ## Define function to gather keys:
-with open("keys/key_api1") as f:
+with open("app/keys/key_api1") as f:
     API_KEY_ID = f.read().strip()
 
 url = "https://api.yelp.com/v3/businesses/search"
@@ -169,46 +169,66 @@ def getYelpDB():
 
 def getName(df, address):
     df_filt = df[df["address"] == address]
-    return (df.iloc[0]['name'])
+    return (df_filt.iloc[0]['name'])
 
 def getRating(df, address): 
     df_filt = df[df["address"] == address]
-    return (df.iloc[0]['rating'])
+    return (df_filt.iloc[0]['rating'])
 
-def getListCategories(df, address): 
+def getFormattedCategories(df, address): 
     df_filt = df[df["address"] == address]
-    return (df.iloc[0]['categories_clean'])
+    return (', '.join(df_filt.iloc[0]['categories_clean']))
 
 def getPrice(df, address):
     df_filt = df[df["address"] == address]
-    if(df.iloc[0]['price'] != "N/A"): 
-        return (df.iloc[0]['price']* "$")
+    if(df_filt.iloc[0]['price_value'] != "N/A"): 
+        return (int(df_filt.iloc[0]['price_value'])* "$")
     else: 
         return ("price not available")
 
 def getFullFormattedAddress(df,address):
     df_filt = df[df["address"] == address]
-    state = df.iloc[0]['state']
-    city = df.iloc[0]['city']
-    zip = df.iloc[0]['zip_code']
-    return (address + ", " + city + ", " + state + zip)
+    state = df_filt.iloc[0]['state']
+    city = df_filt.iloc[0]['city']
+    zip = df_filt.iloc[0]['zip_code']
+    return (address + ", " + city + ", " + state + " " + zip)
 
 def getImgUrl(df,address):
     df_filt = df[df["address"] == address]
-    return (df.iloc[0]['image_url'])
+    try:
+        return (df_filt.iloc[0]['image_url'])
+    except: 
+        return "no img available"
 
 def getListAllAddresses(df):
     return(df["address"].values.tolist())
 
+def getFilteredListAddresses(df, filters): 
+    df_filt = df
+    for i in filters:
+        print(df_filt[i]) 
+        if (df_filt[(df_filt[i] == 1)]):
+           df_filt = df_filt[df_filt[i]]
+    return(df["address"].values.tolist())
+        
+        
+
 #def getDelieveryYN(df, address)
-#def get
+#def getPickupYN(df, address)
+#def getVeganYN(df, address)
+#def getVegetarianYN(df, address)
+#def getKosherYN(df, address)
+#def getHalalYN(df, address)
+#def getGFYN(df, address)
+
 df = getYelpDB()
 #print(df.info())
 #print(list(df.columns.values))
-print(getName(df, "1290 Amsterdam Ave"))
-print(getRating(df, "1290 Amsterdam Ave"))
-print(getListCategories(df, "1290 Amsterdam Ave"))
-print(getPrice(df,"1290 Amsterdam Ave"))
-print(getFullFormattedAddress(df, "1290 Amsterdam Ave"))
-print(getImgUrl(df,"1290 Amsterdam Ave"))
-#print(getListAllAddresses(df))
+print(getName(df, "181 Thompson St"))
+print(getRating(df, "181 Thompson St"))
+print(getFormattedCategories(df, "181 Thompson St"))
+print(getPrice(df,"181 Thompson St"))
+print(getFullFormattedAddress(df, "181 Thompson St"))
+print(getImgUrl(df,"181 Thompson St,"))
+getFilteredListAddresses(df,["italian"])
+print(getListAllAddresses(df))
