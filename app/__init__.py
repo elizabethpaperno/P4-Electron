@@ -48,7 +48,7 @@ def create_user():
     password = request.form['password']
     if checkUsernameAvailability(username):
         addNewUser(username, password)
-        return render_template('signup.html', error = "Account successfully created.")
+        return render_template('index.html', error = "Account successfully created.")
     else:
         return render_template('signup.html', error = "Username already exists.")
 

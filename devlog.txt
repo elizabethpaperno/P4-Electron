@@ -150,3 +150,5 @@ kevinL -- 2023-05-17 19:31
 - added functions into auth.py for handing the preferences table
 - fixed an issue with updatePrefs()
 - added the ability for users to pick multiple options on checkbox type questions
+- modified routes so you immediately return to the login page once registered
+- changes some HTML for more consistency in display
