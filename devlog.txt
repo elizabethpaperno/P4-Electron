@@ -157,6 +157,6 @@ jefferyT -- 2023-05-18 13:20
 --------------------------------------------------------------
 Traveler summary
 - groups used different methods of visualizing data, including chart js and google line charts
-- To get map and locations, Amazing Edamame uses the Position Stack API and Openstreetmap API
-- Gamin Goombas uses Pandas to convert dataset to database
-- Gamin Goombas uses Python to turn database into json for use in js
+- to get map and locations, Amazing Edamame uses the Position Stack API and Openstreetmap API
+- gamin Goombas uses Pandas to convert dataset to database
+- gamin Goombas uses Python to turn database into json for use in js
