@@ -128,3 +128,12 @@ addRadioQuestion("What's the minimum sanitation grade you want your restaurants 
     "B" : 27,
     "C" : 1000
 })
+
+addCheckboxQuestion("What dietary restrictions do you have?", "diet_restrictions", {
+    "Kosher" : "Kosher",
+    "Vegan" : "Vegan",
+    "Vegetarian" : "Vegetarian",
+    "Can't eat gluten" : "Gluten Free",
+    "Halal" : "Halal",
+    "None" : "None"
+})

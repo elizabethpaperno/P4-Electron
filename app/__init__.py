@@ -60,7 +60,7 @@ def show_signup():
 #retrieves user preferences from survey and updates them in the database
 @app.route('/survey', methods = ["GET", "POST"])
 def survey():
-    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference']
+    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference', 'diet_restrictions']
     if (request.method == "POST") and not checkPrefs(session['username']):
         print(request.form)
         for question in questionsAsked:
@@ -78,8 +78,9 @@ def survey():
         location = request.form['location']
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
+        d_rest = request.form['diet_restrictions']
 
-        updatePrefs(f_cat, location, a_pref, s_pref, session["username"])
+        updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         return redirect("/main")
 
     return render_template("survey.html")
