@@ -149,3 +149,4 @@ kevinL -- 2023-05-17 19:31
 - split users table into two tables 
 - added functions into auth.py for handing the preferences table
 - fixed an issue with updatePrefs()
+- added the ability for users to pick multiple options on checkbox type questions

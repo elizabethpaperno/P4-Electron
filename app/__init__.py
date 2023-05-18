@@ -69,16 +69,16 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
             if request.form['location'].strip() == "":
                 return render_template("survey.html", error = "please fill out the entire form")
-            
-        #convert to dictionary so that we can get more than 1 value out of food_category
-        dictionary = dict(request.form)
-        print(dictionary)
 
-        f_cat = request.form['food_category']
+        f_cat = request.form.getlist("food_category")
+        f_cat = " ".join(f_cat)
         location = request.form['location']
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
-        d_rest = request.form['diet_restrictions']
+        d_rest = request.form.getlist("diet_restrictions")
+        d_rest = " ".join(d_rest)
+
+        print(f_cat)
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         return redirect("/main")
