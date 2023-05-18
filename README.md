@@ -5,7 +5,7 @@
 ## Devo: Abid Talukder
 
 ## Summary
-Restaurant Surfers incorporates datasets about restaurants to provide users the ability to find their dream restaurant. Users can filter by food type, seating availabily, dietary restrictions, and more. Users can also view restaurants on an embedded map and read reviews from Yelp as well as publishing their own reviews. 
+Restaurant Surfers incorporates datasets about restaurants to provide users the ability to find their dream restaurant. Users can filter by food type, dietary restrictions, parking, takeout, delievery, and more. Users can also view restaurants on an embedded map and publish reviews and view Yelp rating and price. 
 ## APIs
 - [Embedded Google Maps API](https://developers.google.com/maps/documentation/embed/get-started)
 ## Datasets
