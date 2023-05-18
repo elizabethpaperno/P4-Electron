@@ -23,7 +23,7 @@
     map.setOptions({ styles: styles["hide"] }); //hide annoying map features
     
     var a = codeAddress(school)
-    a.addEventListener("click", blah);
+    //a.addListener("click", blah);
     //console.log(a.getClickable())
   }
   
@@ -42,6 +42,7 @@
             position: results[0].geometry.location,
             optimized: false
         });
+        a.addListener("click", blah)
         //a.setClickable(true)
         return a;
         
