@@ -149,3 +149,14 @@ kevinL -- 2023-05-17 19:31
 - split users table into two tables 
 - added functions into auth.py for handing the preferences table
 - fixed an issue with updatePrefs()
+- added the ability for users to pick multiple options on checkbox type questions
+- modified routes so you immediately return to the login page once registered
+- changes some HTML for more consistency in display
+
+jefferyT -- 2023-05-18 13:20
+--------------------------------------------------------------
+Traveler summary
+- groups used different methods of visualizing data, including chart js and google line charts
+- to get map and locations, Amazing Edamame uses the Position Stack API and Openstreetmap API
+- gamin Goombas uses Pandas to convert dataset to database
+- gamin Goombas uses Python to turn database into json for use in js

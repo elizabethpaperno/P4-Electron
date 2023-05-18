@@ -48,7 +48,7 @@ def create_user():
     password = request.form['password']
     if checkUsernameAvailability(username):
         addNewUser(username, password)
-        return render_template('signup.html', error = "Account successfully created.")
+        return render_template('index.html', error = "Account successfully created.")
     else:
         return render_template('signup.html', error = "Username already exists.")
 
@@ -60,7 +60,7 @@ def show_signup():
 #retrieves user preferences from survey and updates them in the database
 @app.route('/survey', methods = ["GET", "POST"])
 def survey():
-    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference']
+    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference', 'diet_restrictions']
     if (request.method == "POST") and not checkPrefs(session['username']):
         print(request.form)
         for question in questionsAsked:
@@ -69,17 +69,18 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
             if request.form['location'].strip() == "":
                 return render_template("survey.html", error = "please fill out the entire form")
-            
-        #convert to dictionary so that we can get more than 1 value out of food_category
-        dictionary = dict(request.form)
-        print(dictionary)
 
-        f_cat = request.form['food_category']
+        f_cat = request.form.getlist("food_category")
+        f_cat = " ".join(f_cat)
         location = request.form['location']
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
+        d_rest = request.form.getlist("diet_restrictions")
+        d_rest = " ".join(d_rest)
 
-        updatePrefs(f_cat, location, a_pref, s_pref, session["username"])
+        print(f_cat)
+
+        updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         return redirect("/main")
 
     return render_template("survey.html")

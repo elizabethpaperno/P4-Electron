@@ -7,7 +7,7 @@ import db
 def createUsersTable(): 
     #db.query_db("DROP TABLE IF EXISTS users;")
     query_db("CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT)")
-    query_db("CREATE TABLE IF NOT EXISTS preferences(f_cat TEXT, location TEXT, a_pref TEXT, s_pref INTEGER, username TEXT PRIMARY KEY)")
+    query_db("CREATE TABLE IF NOT EXISTS preferences(f_cat TEXT, location TEXT, a_pref TEXT, s_pref INTEGER, d_rest TEXT, username TEXT PRIMARY KEY)")
 
 def addNewUser(username, password): 
     db.query_db("INSERT INTO users VALUES (?, ?);", (username, password))
@@ -30,8 +30,8 @@ def getUserPassword(username):
     password = db.query_db("SELECT password FROM users WHERE username = ?", (username,))
     return password
 
-def updatePrefs(f_cat, location, a_pref, s_pref, username):
-    query_db("REPLACE INTO preferences VALUES (?, ?, ?, ?, ?)", (f_cat, location, a_pref, s_pref, username))
+def updatePrefs(f_cat, location, a_pref, s_pref, d_rest, username):
+    query_db("REPLACE INTO preferences VALUES (?, ?, ?, ?, ?, ?)", (f_cat, location, a_pref, s_pref, d_rest, username))
 
 def checkPrefs(username):
     prefs = db.query_db("SELECT * FROM preferences WHERE username = ?", (username,))
