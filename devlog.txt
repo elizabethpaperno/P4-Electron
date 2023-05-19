@@ -176,6 +176,5 @@ jefferyT -- 2023-05-19 13:20
 kevinL -- 2023-05-19 19:35
 --------------------------------------------------------------
 - changed the main route so it can accept parameters
-- created the filter route to process the filter form on main 
-- linked dashboard.html to filter and filter to main
+- made the filter pass values into main
 - removed and readded P4.db so it reflects changes in table schema
