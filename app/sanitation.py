@@ -35,11 +35,11 @@ def res_grade():
     i = 0
     while (i < res.len()):
         if(res[i] in san_dict['address'][i]):
-            query_db(f"""UPDATE restuarants SET s_grade = ? WHERE address = ?;""", san_dict['grade'][i], res[i])
+            query_db(f"""UPDATE restuarants SET s_grade = ? WHERE address = ?;""", (san_dict['grade'][i], res[i]))
 
 def res_vio():
     res = query_db("SELECT address FROM restuarants")
 
     i = 0
     while (i < res.len()):
-        query_db(f"""UPDATE restuarants SET vio = ? WHERE address = ?;""", san_dict['vio'][i], res[i])
+        query_db(f"""UPDATE restuarants SET vio = ? WHERE address = ?;""", (san_dict['vio'][i], res[i]))
