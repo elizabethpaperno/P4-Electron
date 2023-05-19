@@ -203,6 +203,7 @@ def getImgUrl(df,address):
 def getListAllAddresses(df):
     return(df["address"].values.tolist())
 
+#not yet working
 def getFilteredListAddresses(df, filters): 
     df_filt = df
     for i in filters:

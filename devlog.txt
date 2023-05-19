@@ -153,10 +153,17 @@ kevinL -- 2023-05-17 19:31
 - modified routes so you immediately return to the login page once registered
 - changes some HTML for more consistency in display
 
-jefferyT -- 2023-05-18 13:20
+elizabethP -- 2023-05-18 10:30 
+--------------------------------------------------------------
+- work on writing API calls
+- begin working on function to filter user data 
+- begin working on linking data to backend through flask 
+
+elizabethP, jefferyT -- 2023-05-18 13:20
 --------------------------------------------------------------
 Traveler summary
 - groups used different methods of visualizing data, including chart js and google line charts
 - to get map and locations, Amazing Edamame uses the Position Stack API and Openstreetmap API
 - gamin Goombas uses Pandas to convert dataset to database
 - gamin Goombas uses Python to turn database into json for use in js
+
