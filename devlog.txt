@@ -167,3 +167,8 @@ Traveler summary
 - gamin Goombas uses Pandas to convert dataset to database
 - gamin Goombas uses Python to turn database into json for use in js
 
+jefferyT -- 2023-05-19 13:20
+--------------------------------------------------------------
+- moved db functions completely from __init__.py into auth.py
+- corrected syntax for db calls
+- added location into restaurant db
