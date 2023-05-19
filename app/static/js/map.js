@@ -28,7 +28,7 @@
   }
   
   var blah = () => {
-    console.log("clicked")
+    alert("clicked")
   }
 
   function codeAddress(point) {
