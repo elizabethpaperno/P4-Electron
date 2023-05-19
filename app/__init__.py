@@ -17,17 +17,21 @@ import os
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
 
-@app.route('/main')
-def main():
-    #handle form
-    if (request.method == "POST") :
-        if ("filter" in request.form):
-            #get all the filters
-            filters = request.form.getlist("filter")
-            #get data according to the filter
-        
-
+@app.route('/main/<filters>')
+def main(filters):
     return render_template('dashboard.html')
+
+@app.route("/filter", methods = ["POST"])
+def filter():
+    #handle form
+    if ("filter" in request.form):
+        #get all the filters
+        filters = request.form.getlist("filter")
+        filters = "_".join(filters)
+        #get data according to the filter
+    return redirect("/main" + "/" + filters)
+    
+
 
 @app.route("/")       #assign fxn to route
 def hello_world():
@@ -45,7 +49,7 @@ def login():
         if not checkPrefs(username):
             return redirect("/survey")
         else:
-            return redirect(url_for('main'))
+            return redirect("/main/dashboard")
     else: 
         return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
@@ -89,7 +93,7 @@ def survey():
         print(f_cat)
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
-        return redirect("/main")
+        return redirect("/main/dashboard")
 
     return render_template("survey.html")
 

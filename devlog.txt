@@ -172,3 +172,10 @@ jefferyT -- 2023-05-19 13:20
 - moved db functions completely from __init__.py into auth.py
 - corrected syntax for db calls
 - added location into restaurant db
+
+kevinL -- 2023-05-19 19:35
+--------------------------------------------------------------
+- changed the main route so it can accept parameters
+- created the filter route to process the filter form on main 
+- linked dashboard.html to filter and filter to main
+- removed and readded P4.db so it reflects changes in table schema
