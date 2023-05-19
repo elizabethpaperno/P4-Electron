@@ -19,6 +19,14 @@ app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for inter
 
 @app.route('/main')
 def main():
+    #handle form
+    if request.method = "POST" :
+        if "filter" in request.form {
+            #get all the filters
+            filters = request.form.getlist("filter")
+            #get data according to the filter
+        }
+
     return render_template('dashboard.html')
 
 @app.route("/")       #assign fxn to route
