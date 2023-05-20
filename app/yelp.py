@@ -21,8 +21,8 @@ neighborhoods = ['Midtown West', 'Greenwich Village', 'East Harlem', 'Upper East
                 'Chelsea', 'Morningside Heights', 'Times Square', 'Murray Hill', 'East Village',
                 'Lower East Side', 'Hell\s Kitchen', 'Central Park']
 
-def getYelpDB():
-    '''    
+def getYelpJson():
+       
     nyc = [[] for i in range(len(neighborhoods))]
 
     #Function to draw in data for each neighborhood:
@@ -79,13 +79,6 @@ def getYelpDB():
                 if len(df_temp) !=  0:
                     df_temp.loc[:,'neighborhood'] = neighborhoods[x]
                 df = df.append(df_temp)
-
-
-    with open ('data.pickle','wb')as f:
-        pickle.dump(df, f)
-    
-    with open ('data.pickle','rb') as f:
-        df = pickle.load(f)
 
     #print(len(df))
     #df.head()
@@ -151,14 +144,8 @@ def getYelpDB():
 
     # Remove null values from latitude, longitude, and address columns:
     df_filtered.dropna(inplace=True)
-
-    with open ('scrubbed_data.pickle','wb')as f:
-        pickle.dump(df_filtered, f)
-    '''
-    with open ('scrubbed_data.pickle','rb') as f:
-        df_filtered = pickle.load(f)
-    return df_filtered
-
+    df_filtered.to_json("yelp.json")
+    
 # df = getYelpDB()
 # print(len(df))
 
@@ -203,17 +190,15 @@ def getImgUrl(df,address):
 def getListAllAddresses(df):
     return(df["address"].values.tolist())
 
-'''
+
 #not yet working
 def getFilteredListAddresses(df, filters): 
     df_filt = df
     for i in filters:
-        print(df_filt[i]) 
-        if (df_filt[(df_filt[i] == 1)]):
-           df_filt = df_filt[df_filt[i]]
-    return(df["address"].values.tolist())
-'''       
-        
+        #print(df_filt[i]) 
+        df_filt = df_filt[df_filt[i] == 1]
+    return(df_filt["address"].values.tolist())
+          
 
 #def getDelieveryYN(df, address)
 #def getPickupYN(df, address)
@@ -224,14 +209,15 @@ def getFilteredListAddresses(df, filters):
 #def getGFYN(df, address)
 
 if __name__ == "__main__":
-    df = getYelpDB()
+    #getYelpJson()
+    df = pd.read_json("yelp.json")
     #print(df.info())
-    #print(list(df.columns.values))
+    print(list(df.columns.values))
     print(getName(df, "181 Thompson St"))
     print(getRating(df, "181 Thompson St"))
     print(getFormattedCategories(df, "181 Thompson St"))
     print(getPrice(df,"181 Thompson St"))
     print(getFullFormattedAddress(df, "181 Thompson St"))
     print(getImgUrl(df,"181 Thompson St,"))
-    #getFilteredListAddresses(df,["italian"])
-    print(getListAllAddresses(df))
+    #print(getFilteredListAddresses(df,["tacos"]))
+    #print(getListAllAddresses(df))
