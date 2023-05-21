@@ -208,7 +208,7 @@ def getFilteredListAddresses(df, filters):
 #def getGFYN(df, address)
 
 if __name__ == "__main__":
-    #getYelpJson()
+    getYelpJson()
     df = pd.read_json("yelp.json")
     #print(df.info())
     print(list(df.columns.values))

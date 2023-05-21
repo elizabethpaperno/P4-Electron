@@ -1,5 +1,6 @@
   var geocoder;
   var map;
+
   async function initialize() { // create map
     // Request needed libraries.
   const { Map, InfoWindow } = await google.maps.importLibrary("maps");
@@ -27,8 +28,20 @@
     //console.log(a.getClickable())
   }
   
-  var blah = () => {
-    alert("clicked")
+  var createWidget = () => {
+    const widgetArea = document.getElementById("restWidget");
+    deleteNodes(widgetArea)
+    // const node = document.createTextNode("This is new.");
+    // widgetArea.appendChild(node)
+    // this was a text and it works
+    //const cardParent = 
+    
+  }
+  
+  function deleteNodes(element) {
+    while (element.firstChild){
+      element.removeChild(element.firstChild)
+    }
   }
 
   function codeAddress(point) {
@@ -42,7 +55,7 @@
             position: results[0].geometry.location,
             optimized: false
         });
-        a.addListener("click", blah)
+        a.addListener("click", createWidget)
         //a.setClickable(true)
         return a;
         
@@ -83,7 +96,22 @@
     }
   }
 
-  
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+//PLEASE DO NOT USE THIS (IT WORKS THOUGH)
+//   window.addEventListener("load", (event) => {
+//     //convert string to list
+//     var addresses = document.getElementById("data").className
+//     var list = addresses.split(",")
+//     console.log(list)
+
+//     list.forEach(address => {
+//         codeAddress(address)
+//         sleep("1000")
+//     });
+//   });
   
 // function initMap() {
 //     const newYork = { lat: 40.7128, lng: -74.0060};

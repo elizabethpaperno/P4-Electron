@@ -49,23 +49,16 @@
                 
                 <form action="/main" method="POST">     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Halal" id="flexCheckDefault" name="filter">
+                        <input class="form-check-input" type="checkbox" value="halal" id="flexCheckDefault" name="filter">
                         <label class="" class="form-check-label" for="flexCheckDefault">
                           Halal
                         </label>
                     </div>
                     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Kosher" id="flexCheckDefault" name="filter">
+                        <input class="form-check-input" type="checkbox" value="kosher" id="flexCheckDefault" name="filter">
                         <label class="form-check-label" for="flexCheckDefault">
                           Kosher
-                        </label>
-                    </div>
-                    
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Vegan" id="flexCheckDefault" name="filter">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Vegan
                         </label>
                     </div>
                     
@@ -86,8 +79,17 @@
                     <input class="btn btn-primary" type="submit" value="Submit">
                 </form>
               </div>
-              <div class="bg-light rounded p-4 border">
-                Hello
+              <div id="restWidget" class="bg-light rounded p-4 border">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-header">
+                    Featured
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                  </ul>
+                </div>
               </div>
           </div>
           <div>
@@ -96,11 +98,13 @@
          </div>
         
         <div class="col-10" >
-          <div id="map" "></div>
+          <div id="map"></div>
   <div>
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Encode" onclick="codeAddress()">
   </div>
+
+  <div id="data" class="{{addresses}}"></div>
 
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
@@ -109,6 +113,7 @@
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-8hK1QihGDqpRssJ3XH_LLR-uYJY9Ig&callback=initMap&v=weekly"
       defer
