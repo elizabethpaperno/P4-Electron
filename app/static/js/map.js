@@ -44,8 +44,8 @@ function deleteNodes(element) {
   }
 }
 
-function codeAddress(point) {
-  var address = point;
+function codeAddress(data) {
+  var address = data[data.length-1];
   var marker;
   marker = geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
@@ -53,7 +53,7 @@ function codeAddress(point) {
       var a = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
-          title: "Hello World!",
+          title: data.toString(),
           optimized: false
       });
       a.addListener("click", ()=>{createWidget(a.getTitle())})
@@ -106,7 +106,15 @@ function sleep(ms) {
 window.addEventListener("load", (event) => {
   //convert string to list
   var addresses = document.getElementById("data").className
-  var list = addresses.split(";")
+  var list = addresses.split("rsurf")
+  var finalList= []
+  
+  for (var i = 0; i < list.length; i++){
+    restaurant = list[i]
+    meta = restaurant.split("!")
+    finalList += meta
+  }
+  
   //console.log(list)
   
   //var i = 0;
@@ -118,7 +126,7 @@ window.addEventListener("load", (event) => {
   }
   
   for (var i = 0; i < stop; i++) {
-    codeAddress(list[i]);
+    codeAddress(finalList[i]);
     sleep(1000);
     //console.log(list[i])
   }

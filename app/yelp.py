@@ -233,7 +233,7 @@ def getTopCats(df):
     categories_dummy = df['categories_clean'].str.join(sep=',').str.get_dummies(sep=',')
     all_category = pd.DataFrame(categories_dummy.sum().sort_values(ascending=False))
     category = list(all_category[all_category[0] > 100].index)
-    print(category)
+    #print(category)
 
 if __name__ == "__main__":
     # getYelpJson()
