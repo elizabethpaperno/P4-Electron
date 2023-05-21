@@ -27,8 +27,20 @@
     //console.log(a.getClickable())
   }
   
-  var blah = () => {
-    alert("clicked")
+  var createWidget = () => {
+    const widgetArea = document.getElementById("restWidget");
+    deleteNodes(widgetArea)
+    // const node = document.createTextNode("This is new.");
+    // widgetArea.appendChild(node)
+    // this was a text and it works
+    //const cardParent = 
+    
+  }
+  
+  function deleteNodes(element) {
+    while (element.firstChild){
+      element.removeChild(element.firstChild)
+    }
   }
 
   function codeAddress(point) {
@@ -42,7 +54,7 @@
             position: results[0].geometry.location,
             optimized: false
         });
-        a.addListener("click", blah)
+        a.addListener("click", createWidget)
         //a.setClickable(true)
         return a;
         
