@@ -13,6 +13,7 @@ from auth import *
 from db import *
 import os
 import yelp
+import pandas as pd
 
 
 app = Flask(__name__) #create instance of class Flask
@@ -163,6 +164,6 @@ def remove_visit():
 if __name__ == "__main__": # true if this file NOT imported
     createUsersTable() 
     print("users table created")
-    df = yelp.getYelpDB()
+    df = pd.read_json("yelp.json")
     app.debug = True        # enable auto-reload upon code change
     app.run()
