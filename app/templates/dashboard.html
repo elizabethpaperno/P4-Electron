@@ -96,11 +96,13 @@
          </div>
         
         <div class="col-10" >
-          <div id="map" "></div>
+          <div id="map"></div>
   <div>
     <input id="address" type="textbox" value="Sydney, NSW">
     <input type="button" value="Encode" onclick="codeAddress()">
   </div>
+
+  <div id="data" class="{{addresses}}"></div>
 
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
@@ -109,6 +111,7 @@
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-8hK1QihGDqpRssJ3XH_LLR-uYJY9Ig&callback=initMap&v=weekly"
       defer

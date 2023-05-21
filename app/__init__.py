@@ -21,6 +21,7 @@ app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for inter
 
 @app.route('/main', methods = ['GET', 'POST'])
 def main():
+    addresses = []
     if request.method == "POST":
         if ("filter" in request.form):
             #get all the filters
@@ -28,9 +29,12 @@ def main():
             print("_".join(filters))
             #get data according to the filter
             addresses = yelp.getListAllAddresses(df)
+            #convert to a string that's easier to work with in JS
+            addresses = ",".join(addresses)
+
     # data = request.form["Halal"]
     # print(data)
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', addresses = addresses)
 
 @app.route("/")       #assign fxn to route
 def hello_world():
