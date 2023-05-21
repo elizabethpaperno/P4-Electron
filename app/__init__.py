@@ -18,9 +18,15 @@ import yelp
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
 
-@app.route('/main')
+@app.route('/main', methods = ['GET', 'POST'])
 def main():
-    addresses = yelp.getListAllAddresses(df)
+    if request.method == "POST":
+        if ("filter" in request.form):
+            #get all the filters
+            filters = request.form.getlist("filter")
+            print("_".join(filters))
+            #get data according to the filter
+            addresses = yelp.getListAllAddresses(df)
     # data = request.form["Halal"]
     # print(data)
     return render_template('dashboard.html')
@@ -52,7 +58,7 @@ def create_user():
     password = request.form['password']
     if checkUsernameAvailability(username):
         addNewUser(username, password)
-        return render_template('signup.html', error = "Account successfully created.")
+        return render_template('index.html', error = "Account successfully created.")
     else:
         return render_template('signup.html', error = "Username already exists.")
 
@@ -64,7 +70,7 @@ def show_signup():
 #retrieves user preferences from survey and updates them in the database
 @app.route('/survey', methods = ["GET", "POST"])
 def survey():
-    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference']
+    questionsAsked = ['food_category', 'location', 'alcohol_preference', 'sanitation_preference', 'diet_restrictions']
     if (request.method == "POST") and not checkPrefs(session['username']):
         print(request.form)
         for question in questionsAsked:
@@ -74,16 +80,17 @@ def survey():
             if request.form['location'].strip() == "":
                 return render_template("survey.html", error = "please fill out the entire form")
             
-        #convert to dictionary so that we can get more than 1 value out of food_category
-        dictionary = dict(request.form)
-        print(dictionary)
+        f_cat = request.form.getlist("food_category")
+        f_cat = " ".join(f_cat)
 
         f_cat = request.form['food_category']
         location = request.form['location']
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
+        d_rest = request.form.getlist("diet_restrictions")
+        d_rest = " ".join(d_rest)
 
-        updatePrefs(f_cat, location, a_pref, s_pref, session["username"])
+        updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         return redirect("/main")
 
     return render_template("survey.html")
