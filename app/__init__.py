@@ -38,6 +38,7 @@ def main():
 
 @app.route("/")       #assign fxn to route
 def hello_world():
+    print(list(df.columns.values))
     print("the __name__ of this module is... ")
     print(__name__)
     return render_template("index.html")
