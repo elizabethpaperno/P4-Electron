@@ -26,11 +26,13 @@ def main():
         if ("filter" in request.form):
             #get all the filters
             filters = request.form.getlist("filter")
-            print("_".join(filters))
+            #print("_".join(filters))
+            #print(filters)
             #get data according to the filter
-            addresses = yelp.getListAllAddresses(df)
+            addresses = yelp.getFilteredListAddresses(df,filters=filters)
+            #print(addresses[0])
             #convert to a string that's easier to work with in JS
-            addresses = ",".join(addresses)
+            addresses = ";".join(addresses)
 
     # data = request.form["Halal"]
     # print(data)
@@ -171,5 +173,6 @@ if __name__ == "__main__": # true if this file NOT imported
     createUsersTable() 
     print("users table created")
     df = pd.read_json("yelp.json")
+    df = yelp.editDF(df)
     app.debug = True        # enable auto-reload upon code change
     app.run()

@@ -12,7 +12,7 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
   const newYork = { lat: 40.7128, lng: -74.0060}; // nyc is center of the map
   //const myLatLng1 = { lat: 40.7278, lng: -74.0138 };
   //const myLatLng2 = { lat: 40.7378, lng: -74.0138 };
-  const school = "345 Chambers St, New York, NY 10282"
+  //const school = "345 Chambers St, New York, NY 10282"
   geocoder = new google.maps.Geocoder();
   
   var mapOptions = { //holds map center
@@ -23,7 +23,7 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
   map = new google.maps.Map(document.getElementById('map'), mapOptions); // create map
   map.setOptions({ styles: styles["hide"] }); //hide annoying map features
   
-  var a = codeAddress(school)
+  //var a = codeAddress(school)
   //a.addListener("click", blah);
   //console.log(a.getClickable())
 }
@@ -104,12 +104,19 @@ function sleep(ms) {
 window.addEventListener("load", (event) => {
   //convert string to list
   var addresses = document.getElementById("data").className
-  var list = addresses.split(",")
+  var list = addresses.split(";")
   console.log(list)
   
   //var i = 0;
   
-  for (var i = 100; i < 200; i++) {
+  var stop = 100;
+  
+  if (list.length < 100) {
+    stop = list.length
+  }
+  
+  
+  for (var i = 0; i < stop; i++) {
     codeAddress(list[i]);
     sleep(1000);
     //console.log(list[i])
