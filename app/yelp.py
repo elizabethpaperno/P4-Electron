@@ -144,6 +144,12 @@ def getYelpJson():
 
     # Remove null values from latitude, longitude, and address columns:
     df_filtered.dropna(inplace=True)
+
+    # get rid of NJ resturants and any other resturants not in NYS that may have been picked up by the search
+    # df_filtered =  df_filtered[df_filtered["state"] == "NY"] 
+
+    # add column that includes full adresses
+    # df_filtered["formatted_address"] = df_filtered.apply(lambda row: row.address + ", " + row.city + ", " + row.state + " " + row.zip_code, axis=1)
     df_filtered.to_json("yelp.json")
     
 # df = getYelpDB()
@@ -154,24 +160,46 @@ def getYelpJson():
 # print(list(df.columns.values))
 # print(df["categories_clean"])
 
+def editDF(df):
+    # get rid of NJ resturants and any other resturants not in NYS that may have been picked up by the search
+    df =  df[df["state"] == "NY"] 
+    # add column that includes full adresses
+    df["formatted_address"] = df.apply(lambda row: row.address + ", " + row.city + ", " + row.state + " " + row.zip_code, axis=1)
+    df["cords"] = df.apply(lambda row: [row.latitude, row.longitude] , axis=1)
+    return df 
+
 def getName(df, address):
-    df_filt = df[df["address"] == address]
+    df_filt = df[df["formatted_address"] == address]
     return (df_filt.iloc[0]['name'])
 
 def getRating(df, address): 
-    df_filt = df[df["address"] == address]
+    df_filt = df[df["formatted_address"] == address]
     return (df_filt.iloc[0]['rating'])
 
 def getFormattedCategories(df, address): 
-    df_filt = df[df["address"] == address]
+    df_filt = df[df["formatted_address"] == address]
     return (', '.join(df_filt.iloc[0]['categories_clean']))
 
 def getPrice(df, address):
-    df_filt = df[df["address"] == address]
+    df_filt = df[df["formatted_address"] == address]
     if(df_filt.iloc[0]['price_value'] != "N/A"): 
         return (int(df_filt.iloc[0]['price_value'])* "$")
     else: 
         return ("price not available")
+
+def getDelieveryYN(df, address): 
+    df_filt = df[df["formatted_address"] == address]
+    if(df_filt.iloc[0]['delivery'] == 1): 
+        return ("delivery available")
+    else: 
+        return ("delivery not available")
+
+def getPickupYN(df, address): 
+    df_filt = df[df["formatted_address"] == address]
+    if(df_filt.iloc[0]['pickup'] == 1): 
+        return ("takeout available")
+    else: 
+        return ("pickup not available")
 
 def getFullFormattedAddress(df,address):
     df_filt = df[df["address"] == address]
@@ -180,43 +208,42 @@ def getFullFormattedAddress(df,address):
     zip = df_filt.iloc[0]['zip_code']
     return (address + ", " + city + ", " + state + " " + zip)
 
+
 def getImgUrl(df,address):
-    df_filt = df[df["address"] == address]
+    df_filt = df[df["formatted_address"] == address]
     try:
         return (df_filt.iloc[0]['image_url'])
     except: 
         return "no img available"
 
 def getListAllAddresses(df):
-    return(df["address"].values.tolist())
-
+    return(df["formatted_address"].values.tolist())
 
 #not yet working
 def getFilteredListAddresses(df, filters): 
     df_filt = df
     for i in filters: 
         df_filt = df_filt[df_filt[i] == 1]
-    return(df_filt["address"].values.tolist())
+    return(df_filt["formatted_address"].values.tolist())
           
+def getListAllCords(df):
+    return(df["cords"].tolist())
 
-#def getDelieveryYN(df, address)
-#def getPickupYN(df, address)
-#def getVeganYN(df, address)
-#def getVegetarianYN(df, address)
-#def getKosherYN(df, address)
-#def getHalalYN(df, address)
-#def getGFYN(df, address)
-
+#def getTopCats(df)
 if __name__ == "__main__":
-    getYelpJson()
+    # getYelpJson()
     df = pd.read_json("yelp.json")
-    #print(df.info())
-    print(list(df.columns.values))
-    print(getName(df, "181 Thompson St"))
-    print(getRating(df, "181 Thompson St"))
-    print(getFormattedCategories(df, "181 Thompson St"))
-    print(getPrice(df,"181 Thompson St"))
-    print(getFullFormattedAddress(df, "181 Thompson St"))
-    print(getImgUrl(df,"181 Thompson St,"))
+    df = editDF(df)
+    print(df.info())
+    #print(df["city"].unique())
+    #print(getFullFormattedAddress(df, "181 Thompson St"))
+    #print(getListAllCords(df))
+    print(getName(df, "181 Thompson St, New York, NY 10012"))
+    print(getRating(df, "181 Thompson St, New York, NY 10012"))
+    print(getFormattedCategories(df, "181 Thompson St, New York, NY 10012"))
+    print(getPrice(df,"181 Thompson St, New York, NY 10012"))
+    print(getDelieveryYN(df,"181 Thompson St, New York, NY 10012"))
+    print(getPickupYN(df,"181 Thompson St, New York, NY 10012"))
+    print(getImgUrl(df,"181 Thompson St, New York, NY 10012"))
     #print(getFilteredListAddresses(df,["tacos"]))
     #print(getListAllAddresses(df))
