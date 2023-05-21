@@ -133,7 +133,7 @@ addCheckboxQuestion("What dietary restrictions do you have?", "diet_restrictions
     "Kosher" : "Kosher",
     "Vegan" : "Vegan",
     "Vegetarian" : "Vegetarian",
-    "Can't eat gluten" : "Gluten Free",
+    "Can't eat gluten" : "Gluten-Free",
     "Halal" : "Halal",
     "None" : "None"
 })

@@ -31,11 +31,54 @@ def getUserPassword(username):
     return password
 
 def updatePrefs(f_cat, location, a_pref, s_pref, d_rest, username):
-    query_db("REPLACE INTO preferences VALUES (?, ?, ?, ?, ?, ?)", (f_cat, location, a_pref, s_pref, d_rest, username))
+    query_db("REPLACE INTO preferences VALUES (?, ?, ?, ?, ?, ?)", (f_cat, location, a_pref, s_pref, d_rest, username,))
 
 def checkPrefs(username):
     prefs = db.query_db("SELECT * FROM preferences WHERE username = ?", (username,))
     return prefs is not None
+
+def obtain_restaurants(username):
+    f_cat = query_db(f"""SELECT f_cat FROM preferences WHERE username = ?;""", (username,))
+    location = query_db(f"""SELECT location FROM preferences WHERE username = ?;""", (username,))
+    a_pref = query_db(f"""SELECT a_pref FROM preferences WHERE username = ?;""", (username,))
+    s_pref = query_db(f"""SELECT s_pref FROM preferences WHERE username = ?;""", (username,))
+    d_rest = query_db(f"""SELECT d_rest FROM preferences WHERE username = ?;""", (username,))
+
+    name_address = query_db(f"""SELECT name, address FROM restaurants WHERE cat = ?, loc = ?, alcohol = ?, seating = ?, diet != ?;""", (f_cat, location, a_pref, s_pref, d_rest,))
+    return name_address
+
+def new_review(r_address, review, username):
+    current_rreviews = query_db(f"""SELECT u_reviews FROM restaurants WHERE address = ?""", (r_address,))
+    new_rreviews = current_rreviews.append(review)
+    query_db(f"""UPDATE restaurants SET u_reviews = ? WHERE address = ?;""", (new_rreviews, r_address,))
+
+    current_ureviews =  query_db(f"""SELECT reviews FROM users WHERE username = ?;""", (username,))
+    new_ureviews = current_ureviews.append(review)
+    query_db(f"""UPDATE users SET reviews = ? WHERE username = ?""", (new_ureviews, username,))
+
+def add_rest(r_address, username):
+    current_list = query_db(f"""SELECT r_saved FROM users WHERE username = ?;""", (username,))
+    new_list = current_list.append(r_address)
+
+    query_db(f"""UPDATE users SET r_saved = ? WHERE username = ?;""", (new_list, username,))
+
+def rem_rest(r_address, username):
+    current_list = query_db(f"""SELECT r_saved FROM users WHERE username = ?;""", (username,))
+    new_list = current_list.pop(r_address)
+
+    query_db(f"""UPDATE users SET r_saved = ? WHERE username = ?;""", (new_list, username,))
+
+def add_vis(r_address, username):
+    current_list = query_db(f"""SELECT r_visited FROM users WHERE username = ?;""", (username,))
+    new_list = current_list.append(r_address)
+
+    query_db(f"""UPDATE users SET r_visited = ? WHERE username = ?;""", (new_list, username,))
+
+def rem_vis(r_address, username):
+    current_list = query_db(f"""SELECT r_visited FROM users WHERE username = ?;""", (username,))
+    new_list = current_list.pop(r_address)
+
+    query_db(f"""UPDATE users SET r_visited = ? WHERE username = ?;""", (new_list, username,))
 
 # LINES BELOW ONLY GET RUN IF "EXPLICITY RAN" with `python app/auth.py`
 if __name__ == "__main__":

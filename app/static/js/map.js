@@ -1,5 +1,6 @@
   var geocoder;
   var map;
+
   async function initialize() { // create map
     // Request needed libraries.
   const { Map, InfoWindow } = await google.maps.importLibrary("maps");
@@ -95,7 +96,22 @@
     }
   }
 
-  
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+//PLEASE DO NOT USE THIS (IT WORKS THOUGH)
+//   window.addEventListener("load", (event) => {
+//     //convert string to list
+//     var addresses = document.getElementById("data").className
+//     var list = addresses.split(",")
+//     console.log(list)
+
+//     list.forEach(address => {
+//         codeAddress(address)
+//         sleep("1000")
+//     });
+//   });
   
 // function initMap() {
 //     const newYork = { lat: 40.7128, lng: -74.0060};

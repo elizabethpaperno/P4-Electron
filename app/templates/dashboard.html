@@ -14,7 +14,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Resturant Surfer</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,13 +24,13 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="templates/profile.html">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="templates/rlist.html">Reccomendations</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" href="templates/saved.html">My Resturants</a>
               </li>
             </ul>
           </div>
@@ -47,37 +47,37 @@
                   Filters
                 </div>
                 
-                <form action="">     
+                <form action="/main" method="POST">     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="Halal" id="flexCheckDefault" name="filter">
                         <label class="" class="form-check-label" for="flexCheckDefault">
                           Halal
                         </label>
                     </div>
                     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="Kosher" id="flexCheckDefault" name="filter">
                         <label class="form-check-label" for="flexCheckDefault">
                           Kosher
                         </label>
                     </div>
                     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="Vegan" id="flexCheckDefault" name="filter">
                         <label class="form-check-label" for="flexCheckDefault">
                           Vegan
                         </label>
                     </div>
                     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="Non-Alcoholic" id="flexCheckDefault" name="filter"> 
                         <label class="form-check-label" for="flexCheckDefault">
                           Non-Alcoholic
                         </label>
                     </div>
                     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="filter">
                         <label class="form-check-label" for="flexCheckDefault">
                           Default checkbox
                         </label>
@@ -111,6 +111,8 @@
     <input type="button" value="Encode" onclick="codeAddress()">
   </div>
 
+  <div id="data" class="{{addresses}}"></div>
+
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
       document has been parsed. For non-blocking uses, avoiding race conditions,
@@ -118,6 +120,7 @@
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-8hK1QihGDqpRssJ3XH_LLR-uYJY9Ig&callback=initMap&v=weekly"
       defer

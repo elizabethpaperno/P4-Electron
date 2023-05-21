@@ -12,14 +12,29 @@ from flask import redirect, url_for
 from auth import *
 from db import *
 import os
+import yelp
+import pandas as pd
 
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
 
-@app.route('/main')
+@app.route('/main', methods = ['GET', 'POST'])
 def main():
-    return render_template('dashboard.html')
+    addresses = []
+    if request.method == "POST":
+        if ("filter" in request.form):
+            #get all the filters
+            filters = request.form.getlist("filter")
+            print("_".join(filters))
+            #get data according to the filter
+            addresses = yelp.getListAllAddresses(df)
+            #convert to a string that's easier to work with in JS
+            addresses = ",".join(addresses)
+
+    # data = request.form["Halal"]
+    # print(data)
+    return render_template('dashboard.html', addresses = addresses)
 
 @app.route("/")       #assign fxn to route
 def hello_world():
@@ -69,16 +84,16 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
             if request.form['location'].strip() == "":
                 return render_template("survey.html", error = "please fill out the entire form")
-
+            
         f_cat = request.form.getlist("food_category")
         f_cat = " ".join(f_cat)
+
+        f_cat = request.form['food_category']
         location = request.form['location']
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
         d_rest = request.form.getlist("diet_restrictions")
         d_rest = " ".join(d_rest)
-
-        print(f_cat)
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         return redirect("/main")
@@ -153,5 +168,6 @@ def remove_visit():
 if __name__ == "__main__": # true if this file NOT imported
     createUsersTable() 
     print("users table created")
+    df = pd.read_json("yelp.json")
     app.debug = True        # enable auto-reload upon code change
     app.run()
