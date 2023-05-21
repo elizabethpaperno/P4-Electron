@@ -194,8 +194,7 @@ def getListAllAddresses(df):
 #not yet working
 def getFilteredListAddresses(df, filters): 
     df_filt = df
-    for i in filters:
-        #print(df_filt[i]) 
+    for i in filters: 
         df_filt = df_filt[df_filt[i] == 1]
     return(df_filt["address"].values.tolist())
           
