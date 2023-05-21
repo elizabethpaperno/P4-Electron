@@ -28,14 +28,14 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
   //console.log(a.getClickable())
 }
 
-var createWidget = () => {
-  const widgetArea = document.getElementById("restWidget");
-  deleteNodes(widgetArea)
-  // const node = document.createTextNode("This is new.");
+var createWidget = (title) => {
+  // const widgetArea = document.getElementById("restWidget");
+  // deleteNodes(widgetArea)
+  // const node = document.createTextNode("Onclick works");
   // widgetArea.appendChild(node)
-  // this was a text and it works
-  //const cardParent = 
-  
+  // //this was a test and it works
+  // //const cardParent = 
+  console.log(title)
 }
 
 function deleteNodes(element) {
@@ -49,13 +49,15 @@ function codeAddress(point) {
   var marker;
   marker = geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
-      map.setCenter(results[0].geometry.location);
+      //map.setCenter(results[0].geometry.location);
       var a = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
+          title: "Hello World!",
           optimized: false
       });
-      a.addListener("click", createWidget)
+      a.addListener("click", ()=>{createWidget(a.getTitle())})
+      //console.log(a)
       //a.setClickable(true)
       return a;
       
@@ -105,7 +107,7 @@ window.addEventListener("load", (event) => {
   //convert string to list
   var addresses = document.getElementById("data").className
   var list = addresses.split(";")
-  console.log(list)
+  //console.log(list)
   
   //var i = 0;
   
@@ -114,7 +116,6 @@ window.addEventListener("load", (event) => {
   if (list.length < 100) {
     stop = list.length
   }
-  
   
   for (var i = 0; i < stop; i++) {
     codeAddress(list[i]);
