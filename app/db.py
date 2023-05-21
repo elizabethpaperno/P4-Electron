@@ -23,7 +23,7 @@ db_name = "P4.db"
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
-#c.execute("""CREATE TABLE IF NOT EXISTS users(username TEXT UNIQUE, password TEXT, r_saved TEXT, r_visited TEXT, reviews TEXT, f_cat LIST, location TEXT, a_pref BOOL, s_pref TEXT, d_res LIST)""")
-#c.execute("""CREATE TABLE IF NOT EXISTS retaurants(name TEXT, address TEXT, takeout BOOL, parking BOOL, cat LIST, hours DICT, reviews DICT, alcohol BOOL, loc TEXT, mode TEXT, s_grade TEXT, vio TEXT, seating TEXT, diet LIST, u_reviews LIST)""")
+# c.execute("""CREATE TABLE IF NOT EXISTS users(username TEXT UNIQUE, password TEXT, r_saved TEXT, r_visited TEXT, reviews TEXT, f_cat LIST, location TEXT, a_pref BOOL, s_pref TEXT, d_res LIST)""")
+# c.execute("""CREATE TABLE IF NOT EXISTS restaurants(name TEXT, address TEXT, takeout BOOL, parking BOOL, cat LIST, hours DICT, reviews DICT, alcohol BOOL, loc TEXT, mode TEXT, s_grade TEXT, vio TEXT, seating TEXT, diet LIST, u_reviews LIST)""")
 
 

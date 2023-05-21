@@ -17,7 +17,7 @@ address = []
 for res in data['data']:
     p_name.append(res[13])
     mode.append(res[22])
-    address.append(str(res[15]) + ' ' + str(res[19]))
+    address.append(str(res[15]))
 
 alcohol.close()
 
@@ -29,12 +29,21 @@ def get_adict():
 
 #checks if each restaurant in database is liscensed to sell alcohol
 def alcohol_yn():
-    res = query_db("SELECT address FROM restuarants")
+    res = query_db("SELECT address FROM restaurants")
+    # print(res)
 
     i = 0
-    while (i < res.len()):
+    while (i < len(res)):
         if(res[i] in alc_dict['address'][i]):
             query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", (True, res[i]))
             query_db(f"""UPDATE restaurants SET mode = ? WHERE address = ?;""", (alc_dict['mode'][i], res[i]))
         else:
             query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", (False, res[i]))
+
+def getAlc(address):
+    return query_db(f"""SELECT alcohol FROM restaurants WHERE address = ?;""", (address))
+
+# alcohol_yn()
+# print(alc_dict['address'][0])
+# print(getAlc("1356 W SWEDEN RD"))
+    

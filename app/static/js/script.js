@@ -7,10 +7,10 @@ console.log(alcohol.meta.view)
 
 //const sqlite3 = require('sqlite3').verbose();
 
-// let db = new sqlite3.Database('./../../../restuarants.db', (err) => {
+// let db = new sqlite3.Database('./../../../restaurants.db', (err) => {
 //     if (err) {
 //       console.error(err.message);
 //     }
-//     console.log('Connected to the restuarants database.');
+//     console.log('Connected to the restaurants database.');
 //   });
 
