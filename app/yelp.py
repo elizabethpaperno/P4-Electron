@@ -229,11 +229,17 @@ def getFilteredListAddresses(df, filters):
 def getListAllCords(df):
     return(df["cords"].tolist())
 
-#def getTopCats(df)
+def getTopCats(df):
+    categories_dummy = df['categories_clean'].str.join(sep=',').str.get_dummies(sep=',')
+    all_category = pd.DataFrame(categories_dummy.sum().sort_values(ascending=False))
+    category = list(all_category[all_category[0] > 100].index)
+    print(category)
+
 if __name__ == "__main__":
     # getYelpJson()
     df = pd.read_json("yelp.json")
     df = editDF(df)
+    print(getTopCats(df))
     print(df.info())
     #print(df["city"].unique())
     #print(getFullFormattedAddress(df, "181 Thompson St"))

@@ -1,6 +1,6 @@
-# Clyde 'Thluffy' Sinclair
+# Electron
 # SoftDev
-# Oct 2022
+# May 2023
 
 import sqlite3
 
