@@ -105,15 +105,17 @@ function sleep(ms) {
 //PLEASE DO NOT USE THIS (IT WORKS THOUGH)
 window.addEventListener("load", (event) => {
   //convert string to list
-  var addresses = document.getElementById("data").className
-  var list = addresses.split("rsurf")
+  var addresses = document.getElementById("data").value
+  var list = addresses.split("rsuf")
+  //console.log(list)
   var finalList= []
   
   for (var i = 0; i < list.length; i++){
     restaurant = list[i]
     meta = restaurant.split("!")
-    finalList += meta
+    finalList.push(meta)
   }
+  console.log(finalList)
   
   //console.log(list)
   
