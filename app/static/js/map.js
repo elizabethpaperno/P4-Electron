@@ -56,13 +56,18 @@ var createWidget = (title) => {
   // console.log(name)
   // console.log(rating)
   
-  
+  var skip = true
+  var price= "Price not available"
   for (var i = 0; i < data.length; i=i){
     if (data[i].includes("$")) {break}
+    else if (data[i].includes("http")) {
+      skip = false
+      break
+    }
     cats += data.shift() + ", "
   }
 
-  const price = data.shift()
+  if (skip) {price = data.shift()}
   const delivery = data.shift()
   const pickup = data.shift()
   const img = data.shift()
