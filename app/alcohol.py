@@ -15,14 +15,15 @@ address = []
 
 #loops through each restuarant in the data and records its desired data
 for res in data['data']:
-    p_name.append(res[13])
-    mode.append(res[22])
-    address.append(str(res[15]))
+    if (res[17] == "NEW YORK"):
+        p_name.append(res[13])
+        #mode.append(res[22])
+        address.append(str(res[15]))
 
 alcohol.close()
 
 #create dict containing on desired data retrived from dataset
-alc_dict = {'name': p_name, 'mode': mode, 'address': address}
+alc_dict = {'name': p_name, 'address': address}
 
 def get_adict():
     return alc_dict
@@ -36,10 +37,10 @@ def alcohol_yn():
     while (i < len(res)):
         if(res[i] in alc_dict['address'][i]):
             query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", (True, res[i]))
-            query_db(f"""UPDATE restaurants SET mode = ? WHERE address = ?;""", (alc_dict['mode'][i], res[i]))
         else:
             query_db(f"""UPDATE restaurants SET alcohol = ? WHERE address = ?;""", (False, res[i]))
 
+#get all restaurants that have alcohol permits
 def getAlc(address):
     return query_db(f"""SELECT alcohol FROM restaurants WHERE address = ?;""", (address))
 

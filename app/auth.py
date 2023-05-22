@@ -9,6 +9,9 @@ def createUsersTable():
     query_db("CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT)")
     query_db("CREATE TABLE IF NOT EXISTS preferences(f_cat TEXT, location TEXT, a_pref TEXT, s_pref INTEGER, d_rest TEXT, username TEXT PRIMARY KEY)")
 
+def createRestaurantTable():
+    query_db("CREATE TABLE IF NOT EXISTS restaurants(name TEXT, address TEXT, alcohol BOOL, sanitation INT)")
+
 def addNewUser(username, password): 
     db.query_db("INSERT INTO users VALUES (?, ?);", (username, password))
 
