@@ -1,5 +1,10 @@
 var geocoder;
 var map;
+var start = 0;
+var end = 100;
+var listLength;
+var finalList = [];
+var markerList = [];
 
 async function initialize() { // create map
   // Request needed libraries.
@@ -109,6 +114,7 @@ function codeAddress(data) {
           optimized: false
       });
       a.addListener("click", ()=>{createWidget(a.getTitle())})
+      markerList.push(a)
       //console.log(a)
       //a.setClickable(true)
       return a;
@@ -160,7 +166,8 @@ window.addEventListener("load", (event) => {
   var addresses = document.getElementById("data").value
   var list = addresses.split("rsuf")
   //console.log(list)
-  var finalList= []
+
+   finalList= []
 
   for (var i = 0; i < list.length; i++){
     restaurant = list[i]
@@ -173,13 +180,15 @@ window.addEventListener("load", (event) => {
 
   //var i = 0;
 
-  var stop = 100;
+  //var stop = 100;
 
   if (list.length < 100) {
-    stop = list.length
+    end = list.length
   }
 
-  for (var i = 0; i < stop; i++) {
+  listLength = list.length
+
+  for (var i = 0; i < end; i++) {
     codeAddress(finalList[i]);
     sleep(1000);
     //console.log(list[i])
@@ -192,52 +201,49 @@ window.addEventListener("load", (event) => {
   // });
 });
 
-const sqlite3 = require('sqlite3').verbose();
+// console.log(listLength)
+// console.log(start)
+// console.log(end)
+function switchPage() {
+    //delete markers
+    for (let i = 0; i < markerList.length; i++) {
+        markerList[i].setMap(null);
+    } 
+    markerList = []
 
-function query(sqlstr) {
-  let db = new sqlite3.Database('P4-Electron/P4.db', (err) => {
-    if (err) {
-      console.error(err.message);
+    for (let i = start; i < end; i++){
+        codeAddress(finalList[i])
+        sleep(1000)
     }
-    console.log('Connected to the liked resturant database.');
-  });
-  let sql = sqlstr;
-  db.run(sql)
-  db.close((err) => {
-  if (err) {
-    console.error(err.message);
-  }
-    console.log('Close the database connection.');
-  });
 }
 
-function createLikedRestTable(){
-  query("CREATE TABLE IF NOT EXISTS liked_rest(username TEXT PRIMARY KEY, rest_name TEXT)")
-}
-
-function addRestaurant(user,rest_name){
-  query('INSERT INTO liked_rest VALUES (' + user + ', ' + rest_name ");')
-}
-
-function getLikedRestaurants(user){
-  list = []
-  let db = new sqlite3.Database('./P4.db', (err) => {
-    if (err) {
-      console.error(err.message);
+function nextPage() {
+    // console.log(listLength)
+    // console.log(start)
+    // console.log(end)
+    console.log(start + 100 < listLength)
+    if (start + 100 < listLength) {
+        start = start + 100
+        end = start + 100
     }
-    console.log('Connected to the liked resturant database.');
-  });
-  let sql = 'SELECT rest_name FROM liked_rest WHERE user = ' + user + ';'
-  db.all(sql, [], (err, rows) => {
-  if (err) {
-    throw err;
-  }
-  rows.forEach((row) => {
-    list.push(row.res_name);
-    });
-  });
-  db.close();
-  console.log(list)
+    if (end > listLength) {
+        end = listLength
+    }
+
+    console.log("start: ", start)
+    console.log("stop: ", end)
+    switchPage()
+}
+
+function previousPage() {
+    if (end > 100){
+        start = start - 100
+        end = end - 100
+    }
+
+    console.log("start: ", start)
+    console.log("stop: ", end)
+    switchPage()
 }
 
 /*

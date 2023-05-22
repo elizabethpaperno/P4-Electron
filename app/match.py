@@ -6,8 +6,17 @@ except:
 
 from difflib import SequenceMatcher
 
-REQUIRED_SIMILARITY = .5
 REMOVE_STRINGS = ['llc', 'inc', 'corp']
+SHORTEN_STRINGS = {
+    'avenue' : 'ave',
+    'street' : 'st',
+    'north' : 'n',
+    'east' : 'e',
+    'south' : 's',
+    'west' : 'w',
+    'boulevard' : 'blvd',
+    'place' : 'pl'
+}
 
 data = [
     #name       TEXT
@@ -33,11 +42,6 @@ def assembleDB() :
     new_sanitation_data = []
     for rest in sanitation_data:
         if rest[9] == "Manhattan":
-            rest_copy = list(rest)
-            rest_copy_name = rest_copy[8]
-            if (" ".split(rest_copy_name))[-1]
-            rest_copy.remove()
-            
             new_sanitation_data.append(rest)
 
     #print(new_sanitation_data[0])
@@ -67,64 +71,93 @@ def assembleDB() :
 
     #other notable keys: latitude, longitude, zip_code
     #in alcohol.json, zip is index 19, city is index 9, address is index 15, name is index 13, method of operation is index 22
-    #in sanitation.json, zip is index 12, address is index 10 + 11, name is index 8, borough is index 9
+    #in sanitation.json, zip is index 12, address is index 10 + 11, name is index 8, borough is index 9, inspection date is index 18
 
 #looks for a restaurant in the same zip code, and with a similar name and address
 def hasAlcohol(name, address, zip, new_alcohol_data):
-    highest_name_ratio = 0
-    highest_address_ratio = 0
+    # highest_name_ratio = 0
+    # highest_address_ratio = 0
 
     for rest in new_alcohol_data:
-        #use zip code to lower the sample size
-        try:
-            #print("comparing " + str(zip) + " vs " + str(rest[19]))
-            if (str(zip) == (str(rest[19]))):
-                #see how closely the name and address match
-                input_name = str(name).lower()
-                comparing_name = str(rest[13]).lower()
-                name_match = SequenceMatcher(None, input_name, comparing_name).ratio()
-                #print(input_name + " and " + comparing_name + " have a similarity ratio of " + str(name_match))
+        if str(rest[15]).lower() == str(address).lower():
+            #print("alcohol at " + address)
+            return True
+        else:
+            #use zip code to lower the sample size
+            try:
+                #print("comparing " + str(zip) + " vs " + str(rest[19]))
+                if (str(zip) == (str(rest[19]))):
+                    #see how closely the name and address match
+                    input_name = str(name).lower()
+                    comparing_name = removeStrings(str(rest[13]).lower())
+                    name_match = SequenceMatcher(None, input_name, comparing_name).ratio()
+                    #print(input_name + " and " + comparing_name + " have a similarity ratio of " + str(name_match))
 
 
-                input_address = str(address).lower()
-                comparing_address = str(rest[15]).lower()
-                address_match = SequenceMatcher(None, input_address, comparing_address).ratio()
-                #print(input_address + " and " + comparing_address + " have a similarity ratio of " + str(address_match))
+                    input_address = str(address).lower()
+                    comparing_address = str(rest[15]).lower()
+                    address_match = SequenceMatcher(None, input_address, comparing_address).ratio()
+                    #print(input_address + " and " + comparing_address + " have a similarity ratio of " + str(address_match))
 
-                #for testing 
-                if (name_match > highest_name_ratio):
-                    highest_name_ratio = name_match
-                    #print("New highest name match " + str(name_match))
-                if (address_match > highest_address_ratio):
-                    highest_address_ratio = address_match
-                    #print("New highest address match " + str(address_match))
-
-                #if both the name and the address are 75% similar to each other
-                if (name_match > REQUIRED_SIMILARITY) and (address_match > REQUIRED_SIMILARITY):
-                    print("alcohol detected")
-                    print("matched " + input_name + " with " + comparing_name)
-                    return True
-        except ValueError:
-            continue
+                    #if both the name and the address are similar to each other
+                    if (name_match > .6) and (address_match > .95):
+                        # print("alcohol detected")
+                        # print("matched " + input_name + " with " + comparing_name)
+                        # print("matched " + input_address + " with " + comparing_address)
+                        return True
+            except ValueError:
+                continue
     return False
 
 def getSanitationScore(name, address, zip, new_sanitation_data):
 
     for rest in new_sanitation_data:
         #use zip code to lower the sample size
-        try:
-            if (zip == int(str(rest[12]))):
-                #see how closely the name and address match
-                name_match = SequenceMatcher(None, str(name).lower(), str(rest[8]).lower()).ratio()
-                address_match = SequenceMatcher(None, str(address).lower(), str(rest[10]).lower() + str(rest[11]).lower()).ratio()
+        input_address = str(address).lower()
+        comparing_address = shortenAddress((str(rest[10]) + " " + str(rest[11])).lower())
 
-                #if both the name and the address are 75% similar to each other
-                if (name_match > .75) and (address_match > .75):
-                    return rest[16]
-        except ValueError:
-            continue
+        if input_address == comparing_address:
+            #print("perfect match for " + name + " at " + address)
+            return rest[16]
+        else:
+            try:
+                if (str(zip) == (str(rest[12]))):
+                    #see how closely the name and address match
+                    input_name = str(name).lower()
+                    comparing_name = (str(rest[8]).lower())
+                    name_match = SequenceMatcher(None, input_name, comparing_name).ratio()
+                    #print(input_name + " and " + comparing_name + " have a similarity ratio of " + str(name_match))
+
+                    address_match = SequenceMatcher(None, input_address, comparing_address).ratio()
+                    #if both the name and the address are 75% similar to each other
+                    if (name_match > .5) and (address_match > .75):
+                        # print("matched " + input_name + " with " + comparing_name)
+                        # print("matched " + input_address + " with " + comparing_address)
+                        return rest[16]
+                    # else:
+                        # print("rejected " + input_name + " == " + comparing_name)
+                        # print("rejected " + input_address + " == " + comparing_address)                    
+            except ValueError:
+                continue
+
+    # print("found no match for " + name + " at " + address)
     return -1
 
+def removeStrings(string):
+    list = str.split(string)
+    if (list[len(list) - 1] in SHORTEN_STRINGS):
+        del list[len(list) - 1]
+    return " ".join(list)
+
+def shortenAddress(address):
+    list = str.split(address)
+    for i in range(len(list)):
+        if list[i] in SHORTEN_STRINGS:
+            list[i] = SHORTEN_STRINGS[list[i]]
+            
+    return " ".join(list)
+
+#print(shortenAddress("98 mott boulevard"))
 assembleDB()
 
 #open JSON as Python dict
@@ -138,7 +171,9 @@ assembleDB()
 
 # #addresses are full expanded ex: 125 EAST AVENUE
 # sanitation = open('app/static/js/datasets/sanitation.json', encoding='UTF-8')
-# s_data = json.load(sanitation)
+# s_data = json.load(sanitation)['data']
+# print(s_data[0][18])
+# print(s_data[0][18] < "2013-07-15T00:00:00")
 # for restaurant in s_data['data'] :
 #     # if (restaurant[9] == "Manhattan") :
 #     #     print(restaurant)
