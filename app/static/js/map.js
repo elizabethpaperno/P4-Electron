@@ -29,13 +29,67 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
 }
 
 var createWidget = (title) => {
-  // const widgetArea = document.getElementById("restWidget");
-  // deleteNodes(widgetArea)
-  // const node = document.createTextNode("Onclick works");
+  const widgetArea = document.getElementById("restWidget");
+  const namePlace = document.getElementById("restName")
+  const ratingPlace = document.getElementById("restRating")
+  const catPlace = document.getElementById("restCats")
+  const pricePlace = document.getElementById("restPrice")
+  const deliveryPlace = document.getElementById("restDelivery")
+  const pickupPlace = document.getElementById("restPickup")
+  const imgPlace = document.getElementById("restImg")
+  const locationPlace = document.getElementById("restLocation")
+  
+  var data = title.split(",")
+  
+  //console.log(title.split())
+  
+  // creating string splices
+  const name = data.shift()
+  const rating = data.shift()
+  var cats = ""
+  console.log(name)
+  console.log(rating)
+  
+  
+  for (var i = 0; i < data.length; i=i){
+    if (data[i].includes("$")) {break}
+    cats += data.shift() + ", "
+  }
+  
+  const price = data.shift()
+  const delivery = data.shift()
+  const pickup = data.shift()
+  const img = data.shift()
+  var location = ""
+  for (var i = 0; i < data.length; i=i){
+    location += data.shift()
+  }
+  
+  namePlace.innerHTML=name;
+  ratingPlace.innerHTML=rating;
+  catPlace.innerHTML=cats
+  pricePlace.innerHTML = price;
+  deliveryPlace.innerHTML = delivery
+  pickupPlace.innerHTML = pickup
+  locationPlace.innerHTML = location
+  imgPlace.src=img
+  
+  
+  
+  console.log(cats)
+  console.log(data)
+  console.log(location)
+
+  
+  
+  //deleteNodes(widgetArea)
+  
+  
+  //const node = document.createTextNode("Onclick works");
   // widgetArea.appendChild(node)
   // //this was a test and it works
   // //const cardParent = 
-  console.log(title)
+  //console.log(title)
 }
 
 function deleteNodes(element) {
@@ -115,7 +169,7 @@ window.addEventListener("load", (event) => {
     meta = restaurant.split("!")
     finalList.push(meta)
   }
-  console.log(finalList)
+  //console.log(finalList)
   
   //console.log(list)
   
