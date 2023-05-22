@@ -38,6 +38,7 @@ var createWidget = (title) => {
   const pickupPlace = document.getElementById("restPickup")
   const imgPlace = document.getElementById("restImg")
   const locationPlace = document.getElementById("restLocation")
+  widgetArea.style.display = "block"
 
   var data = title.split(",")
 
@@ -78,8 +79,6 @@ var createWidget = (title) => {
   // console.log(data)
   // console.log(location)
 
-
-
   //deleteNodes(widgetArea)
 
 
@@ -88,6 +87,10 @@ var createWidget = (title) => {
   // //this was a test and it works
   // //const cardParent =
   //console.log(title)
+  //createLikedRestTable()
+  //addRestaurant("blah",location)
+  
+  
 }
 
 function deleteNodes(element) {
@@ -216,7 +219,7 @@ function createLikedRestTable(){
 }
 
 function addRestaurant(user,rest_name){
-  query('INSERT INTO liked_rest VALUES (' + user + ', ' + rest_name ");')
+  query('INSERT INTO liked_rest VALUES (' + user + ', ' + rest_name + ');')
 }
 
 function getLikedRestaurants(user){
