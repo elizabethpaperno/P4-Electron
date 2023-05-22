@@ -224,12 +224,12 @@ function switchPage() {
     local_end = end
 
     if (local_end > listLength) {
-        local_end = listLength
+        local_end = listLength-1
     }
-
+    
     console.log(local_end)
 
-    for (let i = start; i < local_end - 1; i++){
+    for (let i = start; i < local_end; i++){
         codeAddress(finalList[i])
         sleep(1000)
     }
@@ -240,7 +240,8 @@ function nextPage() {
     // console.log(start)
     // console.log(end)
     //console.log(start + 100 < listLength)
-    if (start + 100 < listLength) {
+    var lLength = listLength-1
+    if (start + 100 < lLength) {
         start = start + 100
         end = end + 100
     }
@@ -251,6 +252,7 @@ function nextPage() {
 }
 
 function previousPage() {
+  
     if (end > 100){
         start = start - 100
         end = end - 100
