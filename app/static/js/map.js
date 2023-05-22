@@ -47,10 +47,10 @@ var createWidget = (title) => {
   const name = data.shift()
   const rating = data.shift()
   var cats = ""
-  console.log(name)
-  console.log(rating)
-
-
+  // console.log(name)
+  // console.log(rating)
+  
+  
   for (var i = 0; i < data.length; i=i){
     if (data[i].includes("$")) {break}
     cats += data.shift() + ", "
@@ -73,12 +73,10 @@ var createWidget = (title) => {
   pickupPlace.innerHTML = pickup
   locationPlace.innerHTML = location
   imgPlace.src=img
-
-
-
-  console.log(cats)
-  console.log(data)
-  console.log(location)
+  
+  // console.log(cats)
+  // console.log(data)
+  // console.log(location)
 
 
 
@@ -213,15 +211,15 @@ function query(sqlstr) {
   });
 }
 
-def createLikedRestTable(){
+function createLikedRestTable(){
   query("CREATE TABLE IF NOT EXISTS liked_rest(username TEXT PRIMARY KEY, rest_name TEXT)")
 }
 
-def addRestaurant(user,rest_name){
-  query('INSERT INTO liked_rest VALUES (' + user + ', ' + rest_name ");")
+function addRestaurant(user,rest_name){
+  query('INSERT INTO liked_rest VALUES (' + user + ', ' + rest_name ");')
 }
 
-def getLikedRestaurants(user){
+function getLikedRestaurants(user){
   list = []
   let db = new sqlite3.Database('./P4.db', (err) => {
     if (err) {
