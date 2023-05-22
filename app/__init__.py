@@ -5,10 +5,10 @@
 import sqlite3
 
 from flask import Flask
-from flask import render_template   
-from flask import request          
-from flask import session           
-from flask import redirect, url_for 
+from flask import render_template
+from flask import request
+from flask import session
+from flask import redirect, url_for
 from auth import *
 from db import *
 import os
@@ -45,9 +45,9 @@ def main():
             #print(filters)
             #get data according to the filter
             addresses = yelp.getFilteredListAddresses(df,filters=filters)
-            
+
             # "name!rating!cats!price!delivery!pickup!imgurladdress!address{rsuf}"
-            
+
             for address in addresses:
                 name = yelp.getName(df,address)
                 rating = yelp.getRating(df,address)
@@ -57,13 +57,18 @@ def main():
                 delivery = yelp.getDelieveryYN(df,address)
                 pickup = yelp.getPickupYN(df,address)
                 img = yelp.getImgUrl(df,address)
+                # for kevin to add sanitation and alcohol data
+                # getGrade(short_adsress) --> returns sanitation grade A, B, C
+                # getBool (short_address) --> returns serves alcohol, does nto serve alcohol
+                # sanitation = match.getGrade(yelp.getShortAddress(df,address))
+                # alcohol = match.getBool(yelp.getShortAdress(df,address))
+                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
                 payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
-            
             print(payload)
-            
+
             ##for address in addresses:
-                
-                
+
+
             #print(addresses[0])
             #convert to a string that's easier to work with in JS
             #addresses = ";".join(addresses)
@@ -91,7 +96,7 @@ def login():
             return redirect("/survey")
         else:
             return redirect(url_for('main'))
-    else: 
+    else:
         return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
 
@@ -122,7 +127,7 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
             if request.form['location'].strip() == "":
                 return render_template("survey.html", error = "please fill out the entire form")
-            
+
         f_cat = request.form.getlist("food_category")
         f_cat = " ".join(f_cat)
 
@@ -204,7 +209,7 @@ def remove_visit():
     query_db(f"""UPDATE users SET r_visited = ? WHERE username = ?;""", new_list, session["username"])
 
 if __name__ == "__main__": # true if this file NOT imported
-    createUsersTable() 
+    createUsersTable()
     print("users table created")
     df = pd.read_json("yelp.json")
     df = yelp.editDF(df)

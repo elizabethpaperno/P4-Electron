@@ -22,7 +22,7 @@ neighborhoods = ['Midtown West', 'Greenwich Village', 'East Harlem', 'Upper East
                 'Lower East Side', 'Hell\s Kitchen', 'Central Park']
 
 def getYelpJson():
-       
+
     nyc = [[] for i in range(len(neighborhoods))]
 
     #Function to draw in data for each neighborhood:
@@ -146,12 +146,12 @@ def getYelpJson():
     df_filtered.dropna(inplace=True)
 
     # get rid of NJ resturants and any other resturants not in NYS that may have been picked up by the search
-    # df_filtered =  df_filtered[df_filtered["state"] == "NY"] 
+    # df_filtered =  df_filtered[df_filtered["state"] == "NY"]
 
     # add column that includes full adresses
     # df_filtered["formatted_address"] = df_filtered.apply(lambda row: row.address + ", " + row.city + ", " + row.state + " " + row.zip_code, axis=1)
     df_filtered.to_json("yelp.json")
-    
+
 # df = getYelpDB()
 # print(len(df))
 
@@ -162,43 +162,43 @@ def getYelpJson():
 
 def editDF(df):
     # get rid of NJ resturants and any other resturants not in NYS that may have been picked up by the search
-    df =  df[df["state"] == "NY"] 
+    df =  df[df["state"] == "NY"]
     # add column that includes full adresses
     df["formatted_address"] = df.apply(lambda row: row.address + ", " + row.city + ", " + row.state + " " + row.zip_code, axis=1)
     df["cords"] = df.apply(lambda row: [row.latitude, row.longitude] , axis=1)
-    return df 
+    return df
 
 def getName(df, address):
     df_filt = df[df["formatted_address"] == address]
     return (df_filt.iloc[0]['name'])
 
-def getRating(df, address): 
+def getRating(df, address):
     df_filt = df[df["formatted_address"] == address]
     return (df_filt.iloc[0]['rating'])
 
-def getFormattedCategories(df, address): 
+def getFormattedCategories(df, address):
     df_filt = df[df["formatted_address"] == address]
     return (', '.join(df_filt.iloc[0]['categories_clean']))
 
 def getPrice(df, address):
     df_filt = df[df["formatted_address"] == address]
-    if(df_filt.iloc[0]['price_value'] != "N/A"): 
+    if(df_filt.iloc[0]['price_value'] != "N/A"):
         return (int(df_filt.iloc[0]['price_value'])* "$")
-    else: 
+    else:
         return ("price not available")
 
-def getDelieveryYN(df, address): 
+def getDelieveryYN(df, address):
     df_filt = df[df["formatted_address"] == address]
-    if(df_filt.iloc[0]['delivery'] == 1): 
+    if(df_filt.iloc[0]['delivery'] == 1):
         return ("delivery available")
-    else: 
+    else:
         return ("delivery not available")
 
-def getPickupYN(df, address): 
+def getPickupYN(df, address):
     df_filt = df[df["formatted_address"] == address]
-    if(df_filt.iloc[0]['pickup'] == 1): 
+    if(df_filt.iloc[0]['pickup'] == 1):
         return ("takeout available")
-    else: 
+    else:
         return ("pickup not available")
 
 def getFullFormattedAddress(df,address):
@@ -213,21 +213,25 @@ def getImgUrl(df,address):
     df_filt = df[df["formatted_address"] == address]
     try:
         return (df_filt.iloc[0]['image_url'])
-    except: 
+    except:
         return "no img available"
 
 def getListAllAddresses(df):
     return(df["formatted_address"].values.tolist())
 
 #not yet working
-def getFilteredListAddresses(df, filters): 
+def getFilteredListAddresses(df, filters):
     df_filt = df
-    for i in filters: 
+    for i in filters:
         df_filt = df_filt[df_filt[i] == 1]
     return(df_filt["formatted_address"].values.tolist())
-          
+
 def getListAllCords(df):
     return(df["cords"].tolist())
+
+def getShortAddress(df, full_address):
+    df_filt = df[df["formatted_address"] == full_address]
+    return (df_filt.iloc[0]['address'])
 
 def getTopCats(df):
     categories_dummy = df['categories_clean'].str.join(sep=',').str.get_dummies(sep=',')
