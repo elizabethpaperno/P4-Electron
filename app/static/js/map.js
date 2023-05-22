@@ -60,11 +60,16 @@ var createWidget = (title) => {
   var price= "Price not available"
   for (var i = 0; i < data.length; i=i){
     if (data[i].includes("$")) {break}
-    else if (data[i].includes("http")) {
+    else if (data[i].includes("delivery")) {
       skip = false
       break
     }
-    cats += data.shift() + ", "
+    if (data[i]===" " || data[i]==="") {data.shift()}
+    else if (data[i+1].includes("delivery")) {
+      cats += data.shift()
+    }
+    else {
+      cats += data.shift() + ", "}
   }
 
   if (skip) {price = data.shift()}
