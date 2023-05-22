@@ -25,8 +25,10 @@ def addRest():
     payload = ""
     if request.method == "POST":
         payload = request.form["hiddenPayload"]
+        rname = request.form["hiddenRestaurant"]
+        #print(f"rname:       {rname}    ")
         liked.createLikedRestTable()
-        liked.addRestaurant(session['username'], "restaurant")
+        liked.addRestaurant(session['username'], rname)
         
     return render_template('dashboard.html', addresses = payload)
 

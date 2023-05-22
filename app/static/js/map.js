@@ -43,6 +43,8 @@ var createWidget = (title) => {
   const pickupPlace = document.getElementById("restPickup")
   const imgPlace = document.getElementById("restImg")
   const locationPlace = document.getElementById("restLocation")
+  const resForm = document.getElementById("saveRestaurantForm")
+  
   widgetArea.style.display = "block"
 
   var data = title.split(",")
@@ -89,6 +91,23 @@ var createWidget = (title) => {
   pickupPlace.innerHTML = pickup
   locationPlace.innerHTML = location
   imgPlace.src=img
+  
+  const saveButton = document.getElementById("addRes")
+  var saving = (sb)=> {
+    var toSave = document.getElementById("favoriteRestaurant");
+    toSave.value = name;
+    console.log("name: " + name)
+    sb.removeEventListener("click", saving)
+    sb.type="submit"
+    //resForm.action = "/addRestaurant"
+    sb.submit()
+    
+    
+  }
+  
+  saveButton.addEventListener("click" , ()=>{
+    saving(saveButton)
+  })
   
   
   
