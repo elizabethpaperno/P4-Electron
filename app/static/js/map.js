@@ -190,13 +190,15 @@ window.addEventListener("load", (event) => {
 
   //var stop = 100;
 
-  if (list.length < 100) {
-    end = list.length
-  }
+  local_end = end
+
+    if (local_end > listLength) {
+        local_end = listLength
+    }
 
   listLength = list.length
 
-  for (var i = 0; i < end; i++) {
+  for (var i = 0; i < local_end ; i++) {
     codeAddress(finalList[i]);
     sleep(1000);
     //console.log(list[i])
@@ -219,7 +221,15 @@ function switchPage() {
     } 
     markerList = []
 
-    for (let i = start; i < end; i++){
+    local_end = end
+
+    if (local_end > listLength) {
+        local_end = listLength
+    }
+
+    console.log(local_end)
+
+    for (let i = start; i < local_end - 1; i++){
         codeAddress(finalList[i])
         sleep(1000)
     }
@@ -229,13 +239,10 @@ function nextPage() {
     // console.log(listLength)
     // console.log(start)
     // console.log(end)
-    console.log(start + 100 < listLength)
+    //console.log(start + 100 < listLength)
     if (start + 100 < listLength) {
         start = start + 100
-        end = start + 100
-    }
-    if (end > listLength) {
-        end = listLength
+        end = end + 100
     }
 
     console.log("start: ", start)
