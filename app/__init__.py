@@ -14,10 +14,24 @@ from db import *
 import os
 import yelp
 import pandas as pd
+import liked
 
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
+
+@app.route('/addRestaurant', methods = ['GET', 'POST'])
+def addRest():
+    payload = ""
+    if request.method == "POST":
+        payload = request.form["hiddenPayload"]
+        liked.createLikedRestTable()
+        liked.addRestaurant(session['username'], "restaurant")
+        
+    return render_template('dashboard.html', addresses = payload)
+
+
+
 
 @app.route('/main', methods = ['GET', 'POST'])
 def main():
@@ -38,6 +52,7 @@ def main():
                 name = yelp.getName(df,address)
                 rating = yelp.getRating(df,address)
                 cats = yelp.getFormattedCategories(df,address)
+                #print(cats)
                 price = yelp.getPrice(df,address)
                 delivery = yelp.getDelieveryYN(df,address)
                 pickup = yelp.getPickupYN(df,address)

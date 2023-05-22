@@ -90,6 +90,9 @@ var createWidget = (title) => {
   locationPlace.innerHTML = location
   imgPlace.src=img
   
+  
+  
+  
   // console.log(cats)
   // console.log(data)
   // console.log(location)
@@ -104,8 +107,18 @@ var createWidget = (title) => {
   //console.log(title)
   //createLikedRestTable()
   //addRestaurant("blah",location)
-  
-  
+  //preparePayload() 
+}
+
+function preparePayload(){
+  var payload = ""
+  for (var i = 0; i < finalList.length; i++){
+    for (var j = 0; j < finalList[i].length;j++){
+      if (j===finalList[i].length-1) {payload += finalList[i][j] + 'rsuf'}
+      else {payload += finalList[i][j] + '!'}
+    }
+  }
+  //console.log(payload)
 }
 
 function deleteNodes(element) {
@@ -180,13 +193,14 @@ window.addEventListener("load", (event) => {
   var list = addresses.split("rsuf")
   //console.log(list)
 
-   finalList= []
+  finalList= []
 
   for (var i = 0; i < list.length; i++){
     restaurant = list[i]
     meta = restaurant.split("!")
     finalList.push(meta)
   }
+  //console.log(finalList)
   //console.log(finalList)
 
   //console.log(list)
@@ -202,8 +216,12 @@ window.addEventListener("load", (event) => {
     }
 
   listLength = list.length
-
+  
+  //console.log(finalList)
+  
   for (var i = 0; i < local_end ; i++) {
+    console.log(typeof finalList[i])
+    console.log(i)
     codeAddress(finalList[i]);
     sleep(1000);
     //console.log(list[i])
@@ -232,7 +250,8 @@ function switchPage() {
         local_end = listLength-1
     }
     
-    console.log(local_end)
+    //console.log(local_end)
+    // undefined error is caused by wrong index of local end
 
     for (let i = start; i < local_end; i++){
         codeAddress(finalList[i])

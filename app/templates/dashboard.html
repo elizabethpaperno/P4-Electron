@@ -1598,8 +1598,10 @@
                     <li id="restDelivery" class="list-group-item">A third item</li>
                     <li id="restPickup" class="list-group-item">A third item</li>
                   </ul>
-                  <form method="POST" class="" >     
-                  <input class="btn btn-primary mt-3" type="submit" value="Save">
+                  <form action="/addRestaurant" id="saveRestaurantForm"  method="POST" class="" >     
+                    <input type="hidden" id="data" name="hiddenPayload" value="{{addresses}}">
+                    <input type="hidden" id="favoriteRestaurant" name="hiddenRestaurant" value="">
+                    <input id="addRes" class="btn btn-primary mt-3" type="submit" value="Save">
                   </form>
                 </div>
               </div>
@@ -1616,7 +1618,7 @@
   <input type="button" onclick="nextPage()" value="next">
 
   <!-- <div id="data" class="{{addresses}}"></div> -->
-  <input type="hidden" id="data" name="" value="{{addresses}}">
+
 
     <!-- 
       The `defer` attribute causes the callback to execute after the full HTML
