@@ -4,6 +4,8 @@ try:
 except:
     from db import query_db
 
+from difflib import SequenceMatcher
+
 #open JSON as Python dict
 sanitation = open('app/datasets/sanitation.json')
 data = json.load(sanitation)
@@ -11,20 +13,23 @@ data = json.load(sanitation)
 #initiate lists to fill with data from dataset
 violations = []
 dba = []
-grade = []
+#grade = []
+score = []
 address = []
 
 #loops through each restuarant in the data and records its desired data
 for res in data['data']:
-    violations.append(str(res[14]))
-    dba.append(str(res[9]))
-    grade.append(str(res[17]))
-    address.append(str(res[10]) + ' ' + str(res[11]))
+    if (res[9] == "Manhattan"):
+        violations.append(str(res[14]))
+        dba.append(str(res[9]))
+        #grade.append(str(res[17]))
+        score.append(int(res[16]))
+        address.append(str(res[10]) + ' ' + str(res[11]))
 
 sanitation.close()
 
 #create dict containing on desired data retrived from dataset
-san_dict = {'vio': violations, 'dba': dba, 'grade': grade, 'address': address}
+san_dict = {'vio': violations, 'dba': dba, 'score': score, 'address': address}
 
 def get_sdict():
     return san_dict
