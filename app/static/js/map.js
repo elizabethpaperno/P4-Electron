@@ -47,8 +47,8 @@ var createWidget = (title) => {
   const name = data.shift()
   const rating = data.shift()
   var cats = ""
-  console.log(name)
-  console.log(rating)
+  // console.log(name)
+  // console.log(rating)
   
   
   for (var i = 0; i < data.length; i=i){
@@ -74,11 +74,9 @@ var createWidget = (title) => {
   locationPlace.innerHTML = location
   imgPlace.src=img
   
-  
-  
-  console.log(cats)
-  console.log(data)
-  console.log(location)
+  // console.log(cats)
+  // console.log(data)
+  // console.log(location)
 
   
   
