@@ -85,6 +85,13 @@ var createWidget = (title) => {
   var location = ""
   for (var i = 0; i < data.length; i=i){
     location += data.shift()
+    //console.log(location)
+    if (data.length===0){
+      
+    }
+    else {
+      location +=","
+    }
   }
 
   namePlace.innerHTML=name;
