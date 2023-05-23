@@ -208,8 +208,6 @@ def survey():
             if question not in request.form:
                 print("no answer given for " + question)
                 return render_template("survey.html", error = "please fill out the entire form")
-            if request.form['location'].strip() == "":
-                return render_template("survey.html", error = "please fill out the entire form")
 
         f_cat = request.form.getlist("food_category")
         f_cat = ",".join(f_cat)
