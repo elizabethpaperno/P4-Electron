@@ -18,7 +18,7 @@ def getListScoreAddresses(df, sa_data, username):
     a_pref = bool(db.query_db(f"""SELECT a_pref FROM preferences WHERE username = ?;""", (username,))[0])
     s_pref = int(db.query_db(f"""SELECT s_pref FROM preferences WHERE username = ?;""", (username,))[0])
     d_rest = db.query_db(f"""SELECT d_rest FROM preferences WHERE username = ?;""", (username,))[0].split(",")
-    addresses = yelp.getListAllAddresses(df)
+    addresses = set(yelp.getListAllAddresses(df))
     for address in addresses:
         score = 0
         cats = yelp.getFormattedCategories(df, address).split(",")
@@ -64,4 +64,4 @@ if __name__ == "__main__":
     df = pd.read_json("yelp.json")
     df = yelp.editDF(df)
     sa_data = json.load(open("sanitation_alcohol.json"))
-    print(getListScoreAddresses(df, sa_data, "epap5"))
+    print(getListScoreAddresses(df, sa_data, "epap7"))
