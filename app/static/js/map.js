@@ -43,6 +43,8 @@ var createWidget = (title) => {
   const pickupPlace = document.getElementById("restPickup")
   const imgPlace = document.getElementById("restImg")
   const locationPlace = document.getElementById("restLocation")
+  const alcoholPlace = document.getElementById("restAlcohol")
+  const sanitationPlace = document.getElementById("restSanitation")
   const resForm = document.getElementById("saveRestaurantForm")
   
   widgetArea.style.display = "block"
@@ -78,6 +80,8 @@ var createWidget = (title) => {
   const delivery = data.shift()
   const pickup = data.shift()
   const img = data.shift()
+  const sanitation = data.shift()
+  const alcohol = data.shift()
   var location = ""
   for (var i = 0; i < data.length; i=i){
     location += data.shift()
@@ -91,6 +95,8 @@ var createWidget = (title) => {
   pickupPlace.innerHTML = pickup
   locationPlace.innerHTML = location
   imgPlace.src=img
+  alcoholPlace.innerHTML = alcohol
+  sanitationPlace.innerHTML = sanitation
   
   const saveButton = document.getElementById("addRes")
   var saving = (sb)=> {

@@ -15,10 +15,19 @@ import os
 import yelp
 import pandas as pd
 import liked
-
+import match
+import json
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
+
+createUsersTable()
+print("users table created")
+df = pd.read_json("yelp.json")
+df = yelp.editDF(df)
+print("yelp database ready")
+sa_data = json.load(open("sanitation_alcohol.json"))
+print("sanitation and alcohol data ready")
 
 @app.route('/addRestaurant', methods = ['GET', 'POST'])
 def addRest():
@@ -62,10 +71,10 @@ def main():
                 # for kevin to add sanitation and alcohol data
                 # getGrade(short_adsress) --> returns sanitation grade A, B, C
                 # getBool (short_address) --> returns serves alcohol, does nto serve alcohol
-                # sanitation = match.getGrade(yelp.getShortAddress(df,address))
-                # alcohol = match.getBool(yelp.getShortAdress(df,address))
-                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
-                payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
+                sanitation = match.getGrade(yelp.getShortAddress(df,address), sa_data)
+                alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
+                payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
+                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
             print(payload)
 
             ##for address in addresses:
@@ -212,9 +221,5 @@ def remove_visit():
     query_db(f"""UPDATE users SET r_visited = ? WHERE username = ?;""", new_list, session["username"])
 
 if __name__ == "__main__": # true if this file NOT imported
-    createUsersTable()
-    print("users table created")
-    df = pd.read_json("yelp.json")
-    df = yelp.editDF(df)
     app.debug = True        # enable auto-reload upon code change
     app.run()
