@@ -23,7 +23,7 @@ function addRadioQuestion(question, name, dict) {
     question.appendChild(br)
     //get a list of keys (option text) in the dictionary
     keys = Object.keys(dict)
-    
+
     for(i = 0; i < keys.length; i++) {
         //create and append a radio button for each MCQ option
         id = quiz.childElementCount + "-" + i
@@ -40,7 +40,7 @@ function addRadioQuestion(question, name, dict) {
         label.setAttribute("for", id)
         label.innerHTML = keys[i]
         question.appendChild(label)
-        
+
         //create and append a line break
         br = document.createElement("br")
         question.appendChild(br)
@@ -82,7 +82,7 @@ function addCheckboxQuestion(question, name, dict) {
     question.appendChild(br)
     //get a list of keys (option text) in the dictionary
     keys = Object.keys(dict)
-    
+
     for(i = 0; i < keys.length; i++) {
         //create and append a checkbox for each option
         id = quiz.childElementCount + "-" + i
@@ -99,7 +99,7 @@ function addCheckboxQuestion(question, name, dict) {
         label.setAttribute("for", id)
         label.innerHTML = keys[i]
         question.appendChild(label)
-        
+
         //create and append a line break
         br = document.createElement("br")
         question.appendChild(br)
@@ -110,15 +110,37 @@ function addCheckboxQuestion(question, name, dict) {
     question.appendChild(br)
 }
 
-addCheckboxQuestion("What kinds of food do you like?", "food_category",{
-    "Mexican" : "Mexican",
-    "Chinese" : "Chinese",
-    "English" : "English"
+addCheckboxQuestion("What kinds of restaurants do you like?", "food_category",{
+    "Breakfast/Brunch": "breakfast_brunch",
+    "Italian": "italian",
+    "Cocktail Bars": "cocktailbars",
+    "New American" : "newamerican",
+    "Sandwiches": "sandwiches",
+    "Pizza":'pizza',
+    "Bars":'bars',
+    "Coffee":'coffee',
+    "Trade American":'tradamerican',
+    "Seafood": 'seafood',
+    "Mexican" : "mexican",
+    "Chinese" : "chinese",
+    "Japanese": "japanese",
+    "Sushi": "sushi",
+    "Cafes":'cafes',
+    "Burgers":'burgers',
+    "Wine Bars":'wine_bars',
+    "Delis":'delis',
+    "Salad":'salad',
+    "Mediterranean":'mediterranean',
+    "French":'french',
+    "Noodles":'noodles',
+    "Thai":'thai',
+    "Korean":'korean',
+    "Desserts":'desserts'
 })
 
 addTextQuestion("Where do you live? (please enter a valid address)", "location")
-    
-addRadioQuestion("Do you like alcohol?", "alcohol_preference", {
+
+addRadioQuestion("Do you regularly order (alcoholic) drinks at restaurants?", "alcohol_preference", {
     "Yes" : true,
     "No" : false
 })
@@ -130,10 +152,10 @@ addRadioQuestion("What's the minimum sanitation grade you want your restaurants 
 })
 
 addCheckboxQuestion("What dietary restrictions do you have?", "diet_restrictions", {
-    "Kosher" : "Kosher",
-    "Vegan" : "Vegan",
-    "Vegetarian" : "Vegetarian",
-    "Can't eat gluten" : "Gluten-Free",
-    "Halal" : "Halal",
+    "Kosher" : "kosher",
+    "Vegan" : "vegan",
+    "Vegetarian" : "vegetarian",
+    "Can't eat gluten" : "gluten_free",
+    "Halal" : "halal",
     "None" : "None"
 })
