@@ -30,15 +30,20 @@ print("yelp database ready")
 sa_data = json.load(open("sanitation_alcohol.json"))
 print("sanitation and alcohol data ready")
 
+@app.route('/showSavedRestaurants', methods = ['GET', 'POST'])
+def savedRestaurants():
+    return 5
+
+
 @app.route('/addRestaurant', methods = ['GET', 'POST'])
 def addRest():
     payload = ""
     if request.method == "POST":
         payload = request.form["hiddenPayload"]
         rname = request.form["hiddenRestaurant"]
-        #print(f"rname:       {rname}    ")
-        liked.createLikedRestTable()
-        liked.addRestaurant(session['username'], rname)
+        print(f"rname:       {rname}    ")
+        #liked.createLikedRestTable()
+        liked.addRestaurant(str(session["username"]), rname)
 
     return render_template('dashboard.html', addresses = payload)
 
@@ -233,3 +238,7 @@ def remove_visit():
 if __name__ == "__main__": # true if this file NOT imported
     app.debug = True        # enable auto-reload upon code change
     app.run()
+    #liked.addRestaurant("rty","random restaurant")
+    liked.createLikedRestTable()
+    #print(liked.getListLikedRestaurants("rty"))
+    
