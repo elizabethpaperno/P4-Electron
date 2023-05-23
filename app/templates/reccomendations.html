@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <title>Reccomendations</title>
+</head>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Resturant Surfer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/main">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="templates/saved.html">Saved Restaurants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<h1>Reccomendations</h1>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+      {% for reccomendation in reccomendations %}
+      <div class="col-lg-3 mb-3 d-flex align-items-stretch">
+        <div class="card" style="display: inline-block; margin: auto;">
+            <img class="card-img-top" src="{{reccomendation[2]}}" style="width:300px; height: 300px;">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{reccomendation[3]}}</h5>
+                <h6>{{reccomendation[0]}}</h6>
+            </div>
+            <p class="card-text mb-3">
+              <div style="color: green; align-items: left; margin-left: 15px;">
+                <p><b>Compatibility Score: {{reccomendation[1]}}</b></p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>{{reccomendation[4]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>Rating: {{reccomendation[5]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>Price: {{reccomendation[6]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>{{reccomendation[7]}}</p>
+              </div>
+              <div style="align-items: left; margin: 15px;">
+                  <p>{{reccomendation[8]}}</p>
+              </div>
+              <!--
+                <ul>
+                    <li>
+                        <div style="display: inline-block; align-items: left;">
+                            Rating: {{reccomendation[5]}}
+                        </div>
+                        <div style="display: inline-block; align-items: right;">
+                            {{reccomendation[6]}}
+                        </div>
+                    </li>
+                    <li style="color: green;"><b>Compatibility Score: {{reccomendation[1]}}</b></li>
+                    <li>
+                        {{reccomendation[7]}} <br>
+                        {{reccomendation[8]}}
+                    </li>
+                    <li>
+                        categories: {{reccomendation[4]}}
+                    </li>
+                </ul>
+              -->
+            </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+</div>

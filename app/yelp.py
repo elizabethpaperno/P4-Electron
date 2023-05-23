@@ -233,6 +233,10 @@ def getShortAddress(df, full_address):
     df_filt = df[df["formatted_address"] == full_address]
     return (df_filt.iloc[0]['address'])
 
+def getNeighborhood(df, address):
+    df_filt = df[df["formatted_address"] == address]
+    return (df_filt.iloc[0]['neighborhood'])
+
 def getTopCats(df):
     categories_dummy = df['categories_clean'].str.join(sep=',').str.get_dummies(sep=',')
     all_category = pd.DataFrame(categories_dummy.sum().sort_values(ascending=False))
@@ -246,14 +250,14 @@ if __name__ == "__main__":
     print(getTopCats(df))
     print(df.info())
     #print(df["city"].unique())
-    #print(getFullFormattedAddress(df, "181 Thompson St"))
+    print(getFullFormattedAddress(df, "12 E 32nd St"))
     #print(getListAllCords(df))
-    print(getName(df, "181 Thompson St, New York, NY 10012"))
-    print(getRating(df, "181 Thompson St, New York, NY 10012"))
-    print(getFormattedCategories(df, "181 Thompson St, New York, NY 10012"))
-    print(getPrice(df,"181 Thompson St, New York, NY 10012"))
-    print(getDelieveryYN(df,"181 Thompson St, New York, NY 10012"))
-    print(getPickupYN(df,"181 Thompson St, New York, NY 10012"))
-    print(getImgUrl(df,"181 Thompson St, New York, NY 10012"))
+    print(getName(df, "12 E 32nd St, New York, NY 10016"))
+    print(getRating(df, "12 E 32nd St, New York, NY 10016"))
+    print(getFormattedCategories(df, "12 E 32nd St, New York, NY 10016"))
+    print(getPrice(df,"12 E 32nd St, New York, NY 10016"))
+    print(getDelieveryYN(df,"12 E 32nd St, New York, NY 10016"))
+    print(getPickupYN(df,"12 E 32nd St, New York, NY 10016"))
+    print(getImgUrl(df,"12 E 32nd St, New York, NY 10016"))
     #print(getFilteredListAddresses(df,["tacos"]))
     #print(getListAllAddresses(df))

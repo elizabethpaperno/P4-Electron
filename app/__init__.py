@@ -15,10 +15,20 @@ import os
 import yelp
 import pandas as pd
 import liked
-
+import match
+import json
+import reccomendations as rec
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
+
+createUsersTable()
+print("users table created")
+df = pd.read_json("yelp.json")
+df = yelp.editDF(df)
+print("yelp database ready")
+sa_data = json.load(open("sanitation_alcohol.json"))
+print("sanitation and alcohol data ready")
 
 @app.route('/addRestaurant', methods = ['GET', 'POST'])
 def addRest():
@@ -29,7 +39,7 @@ def addRest():
         #print(f"rname:       {rname}    ")
         liked.createLikedRestTable()
         liked.addRestaurant(session['username'], rname)
-        
+
     return render_template('dashboard.html', addresses = payload)
 
 
@@ -62,10 +72,10 @@ def main():
                 # for kevin to add sanitation and alcohol data
                 # getGrade(short_adsress) --> returns sanitation grade A, B, C
                 # getBool (short_address) --> returns serves alcohol, does nto serve alcohol
-                # sanitation = match.getGrade(yelp.getShortAddress(df,address))
-                # alcohol = match.getBool(yelp.getShortAdress(df,address))
-                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
-                payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
+                sanitation = match.getGrade(yelp.getShortAddress(df,address), sa_data)
+                alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
+                payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
+                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
             print(payload)
 
             ##for address in addresses:
@@ -97,7 +107,7 @@ def login():
         if not checkPrefs(username):
             return redirect("/survey")
         else:
-            return redirect(url_for('main'))
+            return redirect(url_for('info'))
     else:
         return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
@@ -131,20 +141,30 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
 
         f_cat = request.form.getlist("food_category")
-        f_cat = " ".join(f_cat)
-
-        f_cat = request.form['food_category']
-        location = request.form['location']
+        f_cat = ",".join(f_cat)
+        location = request.form.getlist('location')
+        location = ",".join(location)
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
         d_rest = request.form.getlist("diet_restrictions")
-        d_rest = " ".join(d_rest)
+        d_rest = ",".join(d_rest)
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
-        return redirect("/main")
+        #print(checkPrefs(session["username"]))
+        return redirect("/info")
 
     return render_template("survey.html")
 
+@app.route('/reccomendations', methods = ["GET","POST"])
+def reccomendations():
+    username = session["username"]
+    recs = rec.getListScoreAddresses(df, sa_data, username)
+    #adresses = []
+    return render_template('reccomendations.html', reccomendations = recs)
+
+@app.route('/info', methods = ["GET"])
+def info():
+    return render_template('info.html', username = session["username"])
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():
 #     name_address = query_usersdb(f"""SELECT name, address FROM restaurants WHERE cat = ?, alcohol = ?, diet != ?;""", )
@@ -211,9 +231,5 @@ def remove_visit():
     query_db(f"""UPDATE users SET r_visited = ? WHERE username = ?;""", new_list, session["username"])
 
 if __name__ == "__main__": # true if this file NOT imported
-    createUsersTable()
-    print("users table created")
-    df = pd.read_json("yelp.json")
-    df = yelp.editDF(df)
     app.debug = True        # enable auto-reload upon code change
     app.run()
