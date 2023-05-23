@@ -33,6 +33,10 @@ print("sanitation and alcohol data ready")
 @app.route('/saved', methods = ['GET', 'POST'])
 def savedRestaurants():
     addresses = liked.getListLikedRestaurants(session['username'])
+    if (len(addresses)==0):
+        payload = "<h1>You Have Not Saved Any Restaurants</h1>"
+        return render_template('saved.html', savedRests = payload)
+    
     payload = ""
     restaurant_info = []
     counter = 0
