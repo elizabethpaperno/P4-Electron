@@ -29,7 +29,7 @@ def addRest():
         #print(f"rname:       {rname}    ")
         liked.createLikedRestTable()
         liked.addRestaurant(session['username'], rname)
-        
+
     return render_template('dashboard.html', addresses = payload)
 
 
@@ -131,19 +131,20 @@ def survey():
                 return render_template("survey.html", error = "please fill out the entire form")
 
         f_cat = request.form.getlist("food_category")
-        f_cat = " ".join(f_cat)
-
-        f_cat = request.form['food_category']
-        location = request.form['location']
+        f_cat = ",".join(f_cat)
+        location = request.form.getlist('location')
+        location = ",".join(location)
         a_pref = request.form['alcohol_preference']
         s_pref = request.form['sanitation_preference']
         d_rest = request.form.getlist("diet_restrictions")
-        d_rest = " ".join(d_rest)
+        d_rest = ",".join(d_rest)
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
+        #print(checkPrefs(session["username"]))
         return redirect("/main")
 
     return render_template("survey.html")
+#@app.route('/reccomendations', methods = ["POST"]):
 
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():

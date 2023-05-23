@@ -138,7 +138,31 @@ addCheckboxQuestion("What kinds of restaurants do you like?", "food_category",{
     "Desserts":'desserts'
 })
 
-addTextQuestion("Where do you live? (please enter a valid address)", "location")
+addCheckboxQuestion("What neighborhoods do you prefer to eat out in?", "location", {
+  'Midtown West': 'Midtown West',
+  'Greenwich Village': 'Greenwich Village',
+  'East Harlem':'East Harlem',
+  'Upper East Side': 'Upper East Side',
+  'Midtown East': 'Midtown East',
+  'Gramercy': 'Gramercy',
+  'Little Italy': 'Little Italy',
+  'Chinatown':'Chinatown',
+  'SoHo': 'SoHo',
+  'Harlem': 'Harlem',
+  'Upper West Side': 'Upper West Side',
+  'Tribeca': 'Tribeca',
+  'Garment District': 'Garment District',
+  'Stuyvesant Town': 'Stuyvesant Town',
+  'Financial District': 'Financial District',
+  'Chelsea': 'Chelsea',
+  'Morningside Heights': 'Morningside Heights',
+  'Times Square': 'Times Square',
+  'Murray Hill': 'Murray Hill',
+  'East Village': 'East Village',
+  'Lower East Side': 'Lower East Side',
+  "Hell's Kitchen": 'Hell\s Kitchen',
+  'Central Park': 'Central Park'
+})
 
 addRadioQuestion("Do you regularly order (alcoholic) drinks at restaurants?", "alcohol_preference", {
     "Yes" : true,

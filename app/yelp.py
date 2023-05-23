@@ -233,6 +233,10 @@ def getShortAddress(df, full_address):
     df_filt = df[df["formatted_address"] == full_address]
     return (df_filt.iloc[0]['address'])
 
+def getNeighborhood(df, address):
+    df_filt = df[df["formatted_address"] == address]
+    return (df_filt.iloc[0]['neighborhood'])
+
 def getTopCats(df):
     categories_dummy = df['categories_clean'].str.join(sep=',').str.get_dummies(sep=',')
     all_category = pd.DataFrame(categories_dummy.sum().sort_values(ascending=False))
