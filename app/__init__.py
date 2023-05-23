@@ -17,6 +17,7 @@ import pandas as pd
 import liked
 import match
 import json
+import reccomendations as rec
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
@@ -153,7 +154,14 @@ def survey():
         return redirect("/main")
 
     return render_template("survey.html")
-#@app.route('/reccomendations', methods = ["POST"]):
+
+@app.route('/reccomendations', methods = ["GET","POST"])
+def reccomendations():
+    username = session["username"]
+    recs = rec.getListScoreAddresses(df, sa_data, username)
+    #adresses = []
+    return render_template('reccomendations.html', reccomendations = recs)
+
 
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():

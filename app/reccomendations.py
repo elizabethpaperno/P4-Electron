@@ -42,7 +42,23 @@ def getListScoreAddresses(df, sa_data, username):
         if neighborhood in location:
             score += location_multiplier
         if (score >= 100):
-            list.append((address, score))
+            imgurl = yelp.getImgUrl(df, address)
+            name = yelp.getName(df, address)
+            categories = yelp.getFormattedCategories(df, address)
+            rating = yelp.getRating(df, address)
+            price = yelp.getPrice(df,address)
+
+            try:
+                sanitation = match.getGrade(yelp.getShortAddress(df,address), sa_data)
+            except:
+                sanitation = "sanitation grade not available"
+
+            try:
+                alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
+            except:
+                alcohol = "unavailable"
+
+            list.append((address, score, imgurl, name, categories, rating, price, sanitation, alcohol))
     return sorted(list, key=lambda address: address[1], reverse=True)
 
 if __name__ == "__main__":
