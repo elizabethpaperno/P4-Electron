@@ -16,6 +16,9 @@ def addRestaurant(user,rest_name):
     # cur = conn.cursor()
     query_db("INSERT INTO liked_rest (username, rest_name) VALUES (?,?);", (user, rest_name))
     #conn.close()
+
+def deleteRestaurant(user,rest_name):
+    query_db("DELETE FROM liked_rest WHERE username=? AND rest_name=?;", (user, rest_name))
     
 def getListLikedRestaurants(user):
     conn = sqlite3.connect("P4.db")
@@ -26,11 +29,13 @@ def getListLikedRestaurants(user):
     formatted = []
     for i in unformatted:
         formatted.append(i[0])
-    return set(formatted)
+    return (formatted)
 
 if __name__ == "__main__":
-    createLikedRestTable()
+    #createLikedRestTable()
     #addRestaurant("epap", "filler1")
     #addRestaurant("epap", "filler2")
     #addRestaurant("rty","wassup")
+    #print(getListLikedRestaurants("rty"))
+    #deleteRestaurant("rty","wassup")
     print(getListLikedRestaurants("rty"))
