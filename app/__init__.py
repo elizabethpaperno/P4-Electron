@@ -30,9 +30,61 @@ print("yelp database ready")
 sa_data = json.load(open("sanitation_alcohol.json"))
 print("sanitation and alcohol data ready")
 
-@app.route('/showSavedRestaurants', methods = ['GET', 'POST'])
+@app.route('/saved', methods = ['GET', 'POST'])
 def savedRestaurants():
-    return 5
+    addresses = liked.getListLikedRestaurants(session['username'])
+    payload = ""
+    restaurant_info = []
+    counter = 0
+    # get information through yelp methods
+    #print(addresses)
+    for address in addresses:
+        name = yelp.getName(df,address)
+        rating = yelp.getRating(df,address)
+        cats = yelp.getFormattedCategories(df,address)
+                #print(cats)
+        price = yelp.getPrice(df,address)
+        delivery = yelp.getDelieveryYN(df,address)
+        pickup = yelp.getPickupYN(df,address)
+        img = yelp.getImgUrl(df,address)
+                # for kevin to add sanitation and alcohol data
+                # getGrade(short_adsress) --> returns sanitation grade A, B, C
+                # getBool (short_address) --> returns serves alcohol, does nto serve alcohol
+        sanitation = match.getGrade(yelp.getShortAddress(df,address), sa_data)
+        alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
+        restaurant_info.append([name,rating,cats,price,delivery,pickup,img,sanitation,alcohol,address])
+                #f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf' 
+                # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
+    # restaurant data stored in 2d array
+    for i in range(len(restaurant_info)):
+        # payload += "<h1>Hello</h1>"
+        if (i%3==0):
+            if (i!=0):
+                payload +="</div>"
+            payload += '<div style="margin: 1rem; display: flex; align-items: center; justify-content: space-around; gap: 2rem;">'
+            
+        payload += '<div class="card col-3">'
+        payload += f'<img src="{restaurant_info[i][6]}" style="height:10rem;" class="card-img-top" alt="Restaurant Image">'
+        # payload += '<div class="card-body">'
+        payload += '<div class="card-header">'
+        payload += f'{restaurant_info[i][0]}'
+        payload += '</div>'
+        payload += '<ul class="list-group list-group-flush">'
+        payload += f'<li id="restLocation" class="list-group-item">{restaurant_info[i][-1]}</li>'
+        payload += f'<li id="restRating" class="list-group-item">{restaurant_info[i][1]}</li>'
+        payload += f'<li id="restCats" class="list-group-item">{restaurant_info[i][2]}</li>'
+        if not("$" in restaurant_info[i][3]):
+            restaurant_info[i][3]="Price Not Available"
+        payload += f'<li id="restPrice" class="list-group-item">{restaurant_info[i][3]}</li>'
+        payload += f'<li id="restDelivery" class="list-group-item">{restaurant_info[i][4]}</li>'  
+        payload += f'<li id="restPickup" class="list-group-item">{restaurant_info[i][5]}</li>'
+        payload += '</ul>'
+        payload += '<form method="POST" >'
+        payload += '<input class="btn btn-primary mt-3" type="button" value="Save">'
+        payload += '</form>'
+        payload += '</div>'
+        #payload += '</div>'
+    return render_template('saved.html', savedRests = payload)
 
 
 @app.route('/addRestaurant', methods = ['GET', 'POST'])

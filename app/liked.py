@@ -26,7 +26,7 @@ def getListLikedRestaurants(user):
     formatted = []
     for i in unformatted:
         formatted.append(i[0])
-    return formatted
+    return set(formatted)
 
 if __name__ == "__main__":
     createLikedRestTable()
