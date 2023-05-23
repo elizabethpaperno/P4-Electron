@@ -5,12 +5,18 @@ except:
     from db import query_db
 
 def createLikedRestTable():
-    query_db("DROP TABLE IF EXISTS liked_rest;")
+    # conn = sqlite3.connect("P4.db")
+    # cur = conn.cursor()
+    #query_db("DROP TABLE IF EXISTS liked_rest;")
     query_db("CREATE TABLE IF NOT EXISTS liked_rest(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, rest_name TEXT);")
-
+    # conn.close()
+    
 def addRestaurant(user,rest_name):
+    # conn = sqlite3.connect("P4.db")
+    # cur = conn.cursor()
     query_db("INSERT INTO liked_rest (username, rest_name) VALUES (?,?);", (user, rest_name))
-
+    #conn.close()
+    
 def getListLikedRestaurants(user):
     conn = sqlite3.connect("P4.db")
     cur = conn.cursor()
@@ -24,6 +30,7 @@ def getListLikedRestaurants(user):
 
 if __name__ == "__main__":
     createLikedRestTable()
-    addRestaurant("epap", "filler1")
-    addRestaurant("epap", "filler2")
-    getLikedRestaurants("epap")
+    #addRestaurant("epap", "filler1")
+    #addRestaurant("epap", "filler2")
+    #addRestaurant("rty","wassup")
+    print(getListLikedRestaurants("rty"))

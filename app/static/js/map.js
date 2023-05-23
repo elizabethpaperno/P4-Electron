@@ -101,8 +101,8 @@ var createWidget = (title) => {
   const saveButton = document.getElementById("addRes")
   var saving = (sb)=> {
     var toSave = document.getElementById("favoriteRestaurant");
-    toSave.value = name;
-    console.log("name: " + name)
+    toSave.value = location;
+    //console.log("name: " + location)
     sb.removeEventListener("click", saving)
     sb.type="submit"
     //resForm.action = "/addRestaurant"
