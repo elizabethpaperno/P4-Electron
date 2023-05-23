@@ -110,8 +110,9 @@ def addRest():
         print(f"rname:       {rname}    ")
         #liked.createLikedRestTable()
         liked.addRestaurant(str(session["username"]), rname)
+        pageNumber = request.form['pageNumber']
 
-    return render_template('dashboard.html', addresses = payload)
+    return render_template('dashboard.html', addresses = payload, pageNumber = pageNumber)
 
 
 
@@ -158,7 +159,7 @@ def main():
 
     # data = request.form["Halal"]
     # print(data)
-    return render_template('dashboard.html', addresses = payload)
+    return render_template('dashboard.html', addresses = payload, pageNumber = 1)
 
 @app.route("/")       #assign fxn to route
 def hello_world():

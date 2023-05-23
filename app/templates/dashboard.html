@@ -1600,10 +1600,11 @@
                     <li id="restAlcohol" class="list-group-item">A third item</li>
                     <li id="restSanitation" class="list-group-item">A third item</li>
                   </ul>
-                  <form action="/addRestaurant" id="saveRestaurantForm"  method="POST" >
+                  <form action="/addRestaurant" id="saveRestaurantForm"  method="POST" onclick="getPageNumber()">
                     <input type="hidden" id="data" name="hiddenPayload" value="{{addresses}}">
                     <input type="hidden" id="favoriteRestaurant" name="hiddenRestaurant" value="">
                     <input id="addRes" class="btn btn-primary mt-3" type="button" value="Save">
+                    <input type="hidden" id="pageNumber" name="pageNumber" value="{{pageNumber}}">
                   </form>
                 </div>
               </div>
@@ -1615,9 +1616,10 @@
 
         <div class="col-10" >
           <div id="map"></div>
-
+          
   <input type="button" onclick="previousPage()" value="previous">
   <input type="button" onclick="nextPage()" value="next">
+  <div id="displayPageNumber">Page {{pageNumber}}</div>
 
   <!-- <div id="data" class="{{addresses}}"></div> -->
 

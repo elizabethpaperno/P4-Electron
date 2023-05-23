@@ -225,6 +225,10 @@ window.addEventListener("load", (event) => {
   var list = addresses.split("rsuf")
   //console.log(list)
 
+  var pageNumber = parseInt(document.getElementById("pageNumber").value, 10)
+  end = 100 * pageNumber
+  start = 100 * (pageNumber - 1)
+
   finalList= []
 
   for (var i = 0; i < list.length; i++){
@@ -289,6 +293,9 @@ function switchPage() {
         codeAddress(finalList[i])
         sleep(1000)
     }
+
+    displayPageNumber = document.getElementById("displayPageNumber")
+    displayPageNumber.innerHTML = "Page " + (end / 100)
 }
 
 function nextPage() {
@@ -317,6 +324,11 @@ function previousPage() {
     console.log("start: ", start)
     console.log("stop: ", end)
     switchPage()
+}
+
+function getPageNumber() {
+    pageNumber = document.getElementById("pageNumber")
+    pageNumber.value = end / 100
 }
 
 /*
