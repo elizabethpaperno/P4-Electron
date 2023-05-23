@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Info</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100%  */
+     .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+         height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    #foot {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/main">Resturant Surfer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/main">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reccomendations">Recommendations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/saved">Saved Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/info">Info</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h3> Page Description</h3>
+
+        <h4>Dashboard</h4>
+        <p>Use dashboard to generate a map of NYC Resturants fitting filter critera by checking off boxes and hitting submit. Use the previous and next buttons to naviagte through the results. Click on pins to discover more about the restuarant.</p>
+        <h4>Recommendations</h4>
+        <p>Open recommendations to view restaurants specifically catered to your taste (as described in your survey responses when you first logged in).</p>
+        <h4>Saved Restaurants</h4>
+        <p>Navigate to the saved resturants page to view restuarants saved from dashboard.</p>
+
+    </div>
+
+    <div class="col-sm-9">
+      <h2>{{ username }}, Welcome to Restaurant Surfer!</h2>
+      <p>Restaurant Surfer is a data visualization tool that utilizes various resturants dataset to provide users the ability to find their dream restaurant. Users can filter by food type, dietary restrictions,and more. Users can also view restaurants on an embedded map and view their Yelp rating, price data, sanitation grade, delivery and takeout options, and whether the restuarants serve alcohol.</p>
+      <br><br>
+    </div>
+    <div class="footer" id = "foot">
+      <h4>P4 - Electron</h4>
+      <p>PM: Elizabeth Paperno</p>
+      <p>Abid Talukder</p>
+      <p>Kevin Li</p>
+      <p>Jeffery Tang</p>
+      <p>Software Development, PD 7</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

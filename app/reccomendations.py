@@ -9,8 +9,8 @@ import json
 def getListScoreAddresses(df, sa_data, username):
     list = []
     # hardcoded for now
-    cuisine_multiplier = 40
-    location_multiplier = 40
+    cuisine_multiplier = 70
+    location_multiplier = 50
     alcohol_multiplier = 25
     dietary_multiplier = 50
     f_cat = db.query_db(f"""SELECT f_cat FROM preferences WHERE username = ?;""", (username,))[0].split(",")
@@ -33,8 +33,7 @@ def getListScoreAddresses(df, sa_data, username):
             # print("no alc avail")
             score += 0
         try:
-            if (int(sa_data[yelp.getShortAddress(df,address)]["score"]) >= s_pref):
-                score += int(sa_data[yelp.getShortAddress(df,address)]["score"])
+            score += (int(sa_data[yelp.getShortAddress(df,address)]["score"]) - s_pref)
         except:
             # print("no san avail")
             score += 0

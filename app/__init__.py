@@ -107,7 +107,7 @@ def login():
         if not checkPrefs(username):
             return redirect("/survey")
         else:
-            return redirect(url_for('main'))
+            return redirect(url_for('info'))
     else:
         return render_template('index.html', error = "Incorrect username or password")
     #needs a return statement here otherwise the app fails if credentials are not valid
@@ -151,7 +151,7 @@ def survey():
 
         updatePrefs(f_cat, location, a_pref, s_pref, d_rest, session["username"])
         #print(checkPrefs(session["username"]))
-        return redirect("/main")
+        return redirect("/info")
 
     return render_template("survey.html")
 
@@ -162,7 +162,9 @@ def reccomendations():
     #adresses = []
     return render_template('reccomendations.html', reccomendations = recs)
 
-
+@app.route('/info', methods = ["GET"])
+def info():
+    return render_template('info.html', username = session["username"])
 # @app.route('/get_restaurants', methods = ["POST"])
 # def get_restaurants():
 #     name_address = query_usersdb(f"""SELECT name, address FROM restaurants WHERE cat = ?, alcohol = ?, diet != ?;""", )

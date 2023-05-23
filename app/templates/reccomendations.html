@@ -29,7 +29,9 @@
       </div>
     </div>
 </nav>
-
+<h1>Reccomendations</h1>
+<br>
+<br>
 <div class="container">
     <div class="row">
       {% for reccomendation in reccomendations %}
@@ -38,17 +40,38 @@
             <img class="card-img-top" src="{{reccomendation[2]}}" style="width:300px; height: 300px;">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{reccomendation[3]}}</h5>
+                <h6>{{reccomendation[0]}}</h6>
             </div>
             <p class="card-text mb-3">
+              <div style="color: green; align-items: left; margin-left: 15px;">
+                <p><b>Compatibility Score: {{reccomendation[1]}}</b></p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>{{reccomendation[4]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>Rating: {{reccomendation[5]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>Price: {{reccomendation[6]}}</p>
+              </div>
+              <div style="align-items: left; margin-left: 15px;">
+                  <p>{{reccomendation[7]}}</p>
+              </div>
+              <div style="align-items: left; margin: 15px;">
+                  <p>{{reccomendation[8]}}</p>
+              </div>
+              <!--
                 <ul>
                     <li>
                         <div style="display: inline-block; align-items: left;">
-                            rating: {{reccomendation[5]}}     
+                            Rating: {{reccomendation[5]}}
                         </div>
                         <div style="display: inline-block; align-items: right;">
-                            {{reccomendation[6]}}     
+                            {{reccomendation[6]}}
                         </div>
                     </li>
+                    <li style="color: green;"><b>Compatibility Score: {{reccomendation[1]}}</b></li>
                     <li>
                         {{reccomendation[7]}} <br>
                         {{reccomendation[8]}}
@@ -57,6 +80,7 @@
                         categories: {{reccomendation[4]}}
                     </li>
                 </ul>
+              -->
             </p>
         </div>
       </div>
