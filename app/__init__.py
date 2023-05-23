@@ -79,13 +79,21 @@ def savedRestaurants():
         payload += f'<li id="restDelivery" class="list-group-item">{restaurant_info[i][4]}</li>'  
         payload += f'<li id="restPickup" class="list-group-item">{restaurant_info[i][5]}</li>'
         payload += '</ul>'
-        payload += '<form method="POST" >'
-        payload += '<input class="btn btn-primary mt-3" type="button" value="Save">'
+        payload += '<form action="/deleteRestaurant" method="POST" >'
+        payload += f'<input type="hidden" id="favoriteRestaurant" name="hiddenRestaurant" value="{restaurant_info[i][-1]}">'
+        payload += '<input class="btn btn-primary mt-3" type="submit" value="Delete">'
         payload += '</form>'
         payload += '</div>'
         #payload += '</div>'
     return render_template('saved.html', savedRests = payload)
 
+@app.route('/deleteRestaurant', methods = ['GET', 'POST'])
+def deleteRestaurant():
+    #hiddenRestaurant
+    if request.method == "POST":
+        address = request.form["hiddenRestaurant"]
+        liked.deleteRestaurant(session['username'],address)  
+    return redirect("/saved")
 
 @app.route('/addRestaurant', methods = ['GET', 'POST'])
 def addRest():
