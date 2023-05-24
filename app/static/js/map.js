@@ -71,11 +71,12 @@ var createWidget = (title) => {
       break
     }
     if (data[i]===" " || data[i]==="") {data.shift()}
-    else if (data[i+1].includes("delivery")) {
+    else if (data[i+1].includes("delivery") || data[i+1]===" " || data[i+1]==="") {
       cats += data.shift()
     }
     else {
-      cats += data.shift() + ", "}
+      cats += data.shift() + ", "
+    }
   }
 
   if (skip) {price = data.shift()}
