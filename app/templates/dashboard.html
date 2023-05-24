@@ -1661,6 +1661,7 @@
                         yoga
                         </label>
                         </div>
+
                     </div>
 
                   </div>
@@ -1695,10 +1696,12 @@
           </div>
           <div id="map" style="width:70%; margin: auto;" ></div>
         
-  <div id="displayPageNumber">
+  <div>
     <input type="button" onclick="previousPage()" value="previous">
     <input type="button" onclick="nextPage()" value="next">
-    Page {{pageNumber}}
+    <span id = "displayPageNumber">
+        Page {{pageNumber}}
+    </span>   
   </div>
 
   <!-- <div id="data" class="{{addresses}}"></div> -->
