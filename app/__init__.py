@@ -18,6 +18,7 @@ import liked
 import match
 import json
 import reccomendations as rec
+import liked
 
 app = Flask(__name__) #create instance of class Flask
 app.secret_key = os.urandom(32)     #randomized string for SECRET KEY (for interacting with operating system)
@@ -29,6 +30,7 @@ df = yelp.editDF(df)
 print("yelp database ready")
 sa_data = json.load(open("sanitation_alcohol.json"))
 print("sanitation and alcohol data ready")
+liked.createLikedRestTable()
 
 @app.route('/saved', methods = ['GET', 'POST'])
 def savedRestaurants():
