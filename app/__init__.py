@@ -128,7 +128,7 @@ def main():
             #print("_".join(filters))
             #print(filters)
             #get data according to the filter
-            addresses = yelp.getFilteredListAddresses(df,filters=filters)
+            addresses = yelp.getFilteredListAddresses(df, sa_data, filters=filters)
 
             # "name!rating!cats!price!delivery!pickup!imgurladdress!address{rsuf}"
 

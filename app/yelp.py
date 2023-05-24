@@ -3,6 +3,7 @@ import requests
 import pickle
 import pandas as pd
 import numpy as np
+import match
 
 ## Define function to gather keys:
 with open("app/keys/key_api1") as f:
@@ -220,11 +221,58 @@ def getListAllAddresses(df):
     return(df["formatted_address"].values.tolist())
 
 #not yet working
-def getFilteredListAddresses(df, filters):
+def getFilteredListAddresses(df, sa_data, filters):
+    #local_filters = filters
     df_filt = df
+
     for i in filters:
-        df_filt = df_filt[df_filt[i] == 1]
-    return(df_filt["formatted_address"].values.tolist())
+        #ignore the sanitation and alcohol filters first
+        if not i == "alcohol" and not "sanitation" in i:
+            df_filt = df_filt[df_filt[i] == 1]
+                
+    filtered_list = df_filt["formatted_address"].values.tolist()
+    SA_filtered_list = applySAFilter(df, filtered_list, sa_data, filters)
+
+    return(SA_filtered_list)
+
+def applySAFilter(df, addresses, sa_data, filters):
+    filtered_addresses = addresses
+    filter_present = False
+
+    for address in addresses:
+        print(address)
+
+    if "alcohol" in filters:
+        filtered_addresses = []
+        filter_present = True
+        for address in addresses:
+            local_addr = getShortAddress(df, address)
+            try:
+                if sa_data[local_addr]['alcohol']:
+                    filtered_addresses.append(address)
+            except KeyError:
+                continue
+
+    for filter in filters:    
+        if "sanitation" in filter:
+            
+            if not filter_present:
+                filtered_addresses = []
+                filter_present = True
+            grade_req = str(filter)[10]
+
+            for address in addresses:
+                local_addr = getShortAddress(df, address)
+                try:
+                    grade = match.getGrade(getShortAddress(df,address), sa_data)[-1]
+                    if (grade == grade_req):
+                        filtered_addresses.append(address)
+                except KeyError:
+                    continue
+
+    return filtered_addresses
+
+    
 
 def getListAllCords(df):
     return(df["cords"].tolist())

@@ -19,7 +19,7 @@ SHORTEN_STRINGS = {
 }
 
 data = {
-    #address : {"alcohol" : true, "sanitation" : int}
+    #address : {"alcohol" : true, "score" : int}
 }
 
 def createSanitation():
