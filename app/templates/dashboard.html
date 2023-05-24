@@ -80,7 +80,7 @@
                         </label>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="form-check col">
                         <input class="form-check-input" type="checkbox" value="breakfast_brunch" id="flexCheckDefault" name="filter">
@@ -1728,14 +1728,15 @@
             </div>
           </div>
           <div id="map" style="width:70%; margin-left: auto; margin-right: 0; height: 40rem;" ></div>
-        
+
   <div>
     <input type="button" onclick="previousPage()" value="previous">
     <input type="button" onclick="nextPage()" value="next">
-    <span id = "displayPageNumber">
+    <h5 class= "text-right"><span id = "displayPageNumber">
         Page {{pageNumber}}
-    </span>
+    </span></h5>
   </div>
+  <h5 style = "color: green;" >{{ num_entries }} restaurants match your search critera</h5>
 
   <!-- <div id="data" class="{{addresses}}"></div> -->
 

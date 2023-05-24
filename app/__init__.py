@@ -38,7 +38,7 @@ def savedRestaurants():
     if (len(addresses)==0):
         payload = "<h1>You Have Not Saved Any Restaurants</h1>"
         return render_template('saved.html', savedRests = payload)
-    
+
     payload = ""
     restaurant_info = []
     counter = 0
@@ -59,7 +59,7 @@ def savedRestaurants():
         sanitation = match.getGrade(yelp.getShortAddress(df,address), sa_data)
         alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
         restaurant_info.append([name,rating,cats,price,delivery,pickup,img,sanitation,alcohol,address])
-                #f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf' 
+                #f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
                 # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
     # restaurant data stored in 2d array
     for i in range(len(restaurant_info)):
@@ -68,7 +68,7 @@ def savedRestaurants():
             if (i!=0):
                 payload +="</div>"
             payload += '<div style="margin: 1rem; display: flex; align-items: center; justify-content: space-around; gap: 2rem;">'
-            
+
         payload += '<div class="card col-3">'
         payload += f'<img src="{restaurant_info[i][6]}" style="height:10rem;" class="card-img-top" alt="Restaurant Image">'
         # payload += '<div class="card-body">'
@@ -82,7 +82,7 @@ def savedRestaurants():
         if not("$" in restaurant_info[i][3]):
             restaurant_info[i][3]="Price Not Available"
         payload += f'<li class="list-group-item">{restaurant_info[i][3]}</li>'
-        payload += f'<li class="list-group-item">{restaurant_info[i][4]}</li>'  
+        payload += f'<li class="list-group-item">{restaurant_info[i][4]}</li>'
         payload += f'<li class="list-group-item">{restaurant_info[i][5]}</li>'
         payload += f'<li class="list-group-item">{restaurant_info[i][7]}</li>'
         payload += f'<li class="list-group-item">{restaurant_info[i][8]}</li>'
@@ -100,7 +100,7 @@ def deleteRestaurant():
     #hiddenRestaurant
     if request.method == "POST":
         address = request.form["hiddenRestaurant"]
-        liked.deleteRestaurant(session['username'],address)  
+        liked.deleteRestaurant(session['username'],address)
     return redirect("/saved")
 
 @app.route('/addRestaurant', methods = ['GET', 'POST'])
@@ -123,6 +123,7 @@ def addRest():
 def main():
     addresses = []
     payload= ""
+    length = 0
     if request.method == "POST":
         if ("filter" in request.form):
             #get all the filters
@@ -131,7 +132,7 @@ def main():
             #print(filters)
             #get data according to the filter
             addresses = yelp.getFilteredListAddresses(df, sa_data, filters=filters)
-
+            length = len(addresses)
             # "name!rating!cats!price!delivery!pickup!imgurladdress!address{rsuf}"
 
             for address in addresses:
@@ -161,7 +162,7 @@ def main():
 
     # data = request.form["Halal"]
     # print(data)
-    return render_template('dashboard.html', addresses = payload, pageNumber = 1)
+    return render_template('dashboard.html', addresses = payload, num_entries = length, pageNumber = 1)
 
 @app.route("/")       #assign fxn to route
 def hello_world():
@@ -308,4 +309,3 @@ if __name__ == "__main__": # true if this file NOT imported
     #liked.addRestaurant("rty","random restaurant")
     liked.createLikedRestTable()
     #print(liked.getListLikedRestaurants("rty"))
-    
