@@ -148,7 +148,7 @@ def main():
                 alcohol = match.getAlcohol(yelp.getShortAddress(df,address), sa_data)
                 payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{sanitation}!{alcohol}!{address}rsuf'
                 # payload += f'{name}!{rating}!{cats}!{price}!{delivery}!{pickup}!{img}!{address}rsuf'
-            print(payload)
+            print(payload.encode("utf-8"))
 
             ##for address in addresses:
 

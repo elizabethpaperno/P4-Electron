@@ -9,7 +9,9 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="../static/js/map.js"></script>
     <title>Dashboard</title>
+    
 </head>
+
 <body onload="initialize()">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -40,1586 +42,1664 @@
       <!-- Body -->
     <main style="padding: 2rem;">
        <div class="row">
-        <div class="col-2">
+        <div>
           <div class="">
-              <div class="bg-light rounded p-4 border" style="overflow: scroll; height: 20rem;">
+              <div class="bg-light rounded p-4 border" style="overflow: scroll; height: 17rem;">
                 <div class="fs-4 fw-semibold">
                   Filters
                 </div>
 
                 <form action="/main" method="POST" class="" >
-                <div style="overflow: scroll; height: 12rem;">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="breakfast_brunch" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    breakfast_brunch
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="italian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    italian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cocktailbars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cocktailbars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="newamerican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    newamerican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="sandwiches" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    sandwiches
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pizza" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pizza
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="coffee" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    coffee
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tradamerican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tradamerican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="seafood" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    seafood
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="mexican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    mexican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="chinese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    chinese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="japanese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    japanese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="sushi" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    sushi
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cafes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cafes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="burgers" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    burgers
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="wine_bars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    wine_bars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="delis" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    delis
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="salad" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    salad
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="mediterranean" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    mediterranean
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="french" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    french
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="noodles" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    noodles
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="thai" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    thai
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="korean" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    korean
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="desserts" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    desserts
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bakeries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bakeries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hotdogs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hotdogs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="indpak" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    indpak
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="asianfusion" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    asianfusion
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="chicken_wings" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    chicken_wings
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="steak" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    steak
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="vegan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    vegan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="ramen" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    ramen
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tapasmallplates" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tapasmallplates
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="juicebars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    juicebars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="latin" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    latin
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="venues" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    venues
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="vegetarian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    vegetarian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bbq" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bbq
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="dimsum" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    dimsum
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="sportsbars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    sportsbars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="halal" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    halal
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="foodstands" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    foodstands
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="greek" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    greek
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="mideastern" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    mideastern
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="lounges" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    lounges
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="chickenshop" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    chickenshop
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="soup" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    soup
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="restaurants" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    restaurants
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="foodtrucks" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    foodtrucks
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="caribbean" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    caribbean
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="diners" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    diners
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tacos" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tacos
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="vietnamese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    vietnamese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gluten_free" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gluten_free
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="spanish" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    spanish
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gastropubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gastropubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bagels" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bagels
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="comfortfood" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    comfortfood
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tapas" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tapas
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="beerbar" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    beerbar
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="szechuan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    szechuan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cantonese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cantonese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="kosher" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    kosher
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="grocery" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    grocery
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="fooddeliveryservices" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    fooddeliveryservices
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="soulfood" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    soulfood
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hotdog" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hotdog
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pastashops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pastashops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="dominican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    dominican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="irish" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    irish
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="southern" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    southern
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bubbletea" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bubbletea
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="streetvendors" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    streetvendors
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="wraps" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    wraps
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="irish_pubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    irish_pubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="food_court" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    food_court
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="peruvian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    peruvian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="poke" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    poke
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="turkish" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    turkish
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cuban" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cuban
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="african" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    african
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hotpot" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hotpot
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="izakaya" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    izakaya
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="taiwanese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    taiwanese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tex-mex" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tex-mex
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="icecream" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    icecream
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="catering" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    catering
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="lebanese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    lebanese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="shanghainese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    shanghainese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="buffets" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    buffets
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cajun" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cajun
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="japacurry" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    japacurry
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="falafel" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    falafel
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="waffles" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    waffles
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="convenience" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    convenience
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="modern_european" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    modern_european
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="empanadas" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    empanadas
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="panasian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    panasian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hawaiian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hawaiian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="creperies" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    creperies
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gourmet" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gourmet
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="beer_and_wine" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    beer_and_wine
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="newmexican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    newmexican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="acaibowls" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    acaibowls
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="puertorican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    puertorican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="malaysian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    malaysian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="australian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    australian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="moroccan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    moroccan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pakistani" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pakistani
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="jazzandblues" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    jazzandblues
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="filipino" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    filipino
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="singaporean" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    singaporean
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="british" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    british
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="whiskeybars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    whiskeybars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="brazilian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    brazilian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="brasseries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    brasseries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="divebars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    divebars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="popuprestaurants" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    popuprestaurants
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="musicvenues" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    musicvenues
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="fishnchips" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    fishnchips
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hookah_bars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hookah_bars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hkcafe" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hkcafe
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="ethiopian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    ethiopian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="kebab" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    kebab
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="argentine" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    argentine
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="coffeeroasteries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    coffeeroasteries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="beergardens" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    beergardens
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="belgian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    belgian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="georgian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    georgian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="german" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    german
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cafeteria" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cafeteria
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="ukrainian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    ukrainian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cheesesteaks" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cheesesteaks
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="karaoke" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    karaoke
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="dinnertheater" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    dinnertheater
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tea" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tea
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="speakeasies" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    speakeasies
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="himalayan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    himalayan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="donuts" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    donuts
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cheese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cheese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="senegalese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    senegalese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="seafoodmarkets" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    seafoodmarkets
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bangladeshi" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bangladeshi
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="persian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    persian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="scandinavian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    scandinavian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="meats" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    meats
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="basque" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    basque
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tuscan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tuscan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="themedcafes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    themedcafes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pianobars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pianobars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="colombian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    colombian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="raw_food" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    raw_food
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bookstores" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bookstores
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="organic_stores" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    organic_stores
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="markets" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    markets
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="danceclubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    danceclubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="russian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    russian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="arcades" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    arcades
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="afghani" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    afghani
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="theater" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    theater
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="egyptian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    egyptian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="healthmarkets" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    healthmarkets
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="galleries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    galleries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="haitian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    haitian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gelato" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gelato
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="austrian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    austrian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="portuguese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    portuguese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cupcakes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cupcakes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="comedyclubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    comedyclubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cakeshop" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cakeshop
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="smokehouse" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    smokehouse
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="publicmarkets" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    publicmarkets
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="salvadoran" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    salvadoran
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="supperclubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    supperclubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="foodtours" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    foodtours
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="beverage_stores" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    beverage_stores
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="sicilian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    sicilian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="venezuelan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    venezuelan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cabaret" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cabaret
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="intlgrocery" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    intlgrocery
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="indonesian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    indonesian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="importedfood" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    importedfood
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="eventplanning" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    eventplanning
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="uzbek" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    uzbek
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tobaccoshops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tobaccoshops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="souvenirs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    souvenirs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="vapeshops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    vapeshops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hungarian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hungarian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pretzels" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pretzels
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="movietheaters" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    movietheaters
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="breweries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    breweries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="burmese" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    burmese
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="butcher" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    butcher
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="chocolate" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    chocolate
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cookingclasses" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cookingclasses
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="customcakes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    customcakes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="festivals" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    festivals
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="fondue" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    fondue
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="poutineries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    poutineries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gaybars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gaybars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="giftshops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    giftshops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="laotian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    laotian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gardening" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    gardening
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="personalchefs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    personalchefs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="pancakes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    pancakes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="media" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    media
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="diyfood" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    diyfood
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tikibars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    tikibars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="scottish" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    scottish
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="culturalcenter" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    culturalcenter
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="petadoption" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    petadoption
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="piadina" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    piadina
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="champagne_bars" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    champagne_bars
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cannabisdispensaries" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cannabisdispensaries
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cannabiscollective" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cannabiscollective
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="candy" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    candy
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="cambodian" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    cambodian
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="polish" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    polish
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="poolhalls" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    poolhalls
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="popupshops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    popupshops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="vintage" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    vintage
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bowling" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bowling
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="walkingtours" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    walkingtours
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="wedding_planning" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    wedding_planning
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="boattours" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    boattours
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="boating" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    boating
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="womenscloth" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    womenscloth
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="bikes" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    bikes
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="czech" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    czech
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="eritrean" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    eritrean
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="social_clubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    social_clubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="headshops" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    headshops
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="nonprofit" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    nonprofit
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hotels" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hotels
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="southafrican" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    southafrican
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="honey" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    honey
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="honduran" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    honduran
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="homedecor" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    homedecor
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="spas" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    spas
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="herbsandspices" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    herbsandspices
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="sports_clubs" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    sports_clubs
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="srilankan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    srilankan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="farmersmarket" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    farmersmarket
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hair" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hair
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="hainan" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    hainan
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="shavedice" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    shavedice
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="paintandsip" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    paintandsip
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="food" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    food
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="permanentmakeup" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    permanentmakeup
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="florists" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    florists
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="floraldesigners" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    floraldesigners
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="teppanyaki" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    teppanyaki
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="yoga" id="flexCheckDefault" name="filter">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    yoga
-                    </label>
+                <div style="overflow: scroll; height: 8rem;" class="container">
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="breakfast_brunch" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        breakfast_brunch
+                        </label>
+                        </div>
+                    
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="italian" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            italian
+                            </label>
+                        </div>
+    
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="cocktailbars" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            cocktailbars
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="newamerican" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            newamerican
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="sandwiches" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            sandwiches
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="pizza" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            pizza
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="bars" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            bars
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="coffee" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            coffee
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="tradamerican" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            tradamerican
+                            </label>
+                        </div>
+                    
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="seafood" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            seafood
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="mexican" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            mexican
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="chinese" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            chinese
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" value="japanese" id="flexCheckDefault" name="filter">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            japanese
+                            </label>
+                        </div>
+
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="sushi" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        sushi
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cafes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cafes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="burgers" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        burgers
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="wine_bars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        wine_bars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="delis" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        delis
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="salad" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        salad
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="mediterranean" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        mediterranean
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="french" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        french
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="noodles" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        noodles
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="thai" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        thai
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="korean" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        korean
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="desserts" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        desserts
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bakeries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bakeries
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hotdogs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hotdogs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="indpak" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        indpak
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="asianfusion" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        asianfusion
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="chicken_wings" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        chicken_wings
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="steak" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        steak
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="vegan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        vegan
+                        </label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="ramen" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        ramen
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tapasmallplates" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tapasmallplates
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="juicebars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        juicebars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="latin" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        latin
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="venues" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        venues
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="vegetarian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        vegetarian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bbq" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bbq
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="dimsum" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        dimsum
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="sportsbars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        sportsbars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="halal" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        halal
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="foodstands" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        foodstands
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="greek" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        greek
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="mideastern" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        mideastern
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="lounges" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        lounges
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="chickenshop" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        chickenshop
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="soup" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        soup
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="restaurants" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        restaurants
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="foodtrucks" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        foodtrucks
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="caribbean" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        caribbean
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="diners" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        diners
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tacos" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tacos
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="vietnamese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        vietnamese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gluten_free" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gluten_free
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="spanish" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        spanish
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gastropubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gastropubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bagels" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bagels
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="comfortfood" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        comfortfood
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tapas" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tapas
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="beerbar" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        beerbar
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="szechuan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        szechuan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cantonese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cantonese
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="kosher" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        kosher
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="grocery" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        grocery
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="fooddeliveryservices" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        fooddeliveryservices
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="soulfood" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        soulfood
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hotdog" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hotdog
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pastashops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pastashops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="dominican" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        dominican
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="irish" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        irish
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="southern" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        southern
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bubbletea" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bubbletea
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="streetvendors" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        streetvendors
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="wraps" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        wraps
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="irish_pubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        irish_pubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="food_court" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        food_court
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="peruvian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        peruvian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="poke" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        poke
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="turkish" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        turkish
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cuban" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cuban
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="african" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        african
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hotpot" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hotpot
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="izakaya" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        izakaya
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="taiwanese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        taiwanese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tex-mex" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tex-mex
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="icecream" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        icecream
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="catering" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        catering
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="lebanese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        lebanese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="shanghainese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        shanghainese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="buffets" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        buffets
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cajun" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cajun
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="japacurry" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        japacurry
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="falafel" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        falafel
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="waffles" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        waffles
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="convenience" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        convenience
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="modern_european" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        modern_european
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="empanadas" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        empanadas
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="panasian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        panasian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hawaiian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hawaiian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="creperies" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        creperies
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gourmet" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gourmet
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="beer_and_wine" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        beer_and_wine
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="newmexican" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        newmexican
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="acaibowls" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        acaibowls
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="puertorican" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        puertorican
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="malaysian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        malaysian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="australian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        australian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="moroccan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        moroccan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pakistani" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pakistani
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="jazzandblues" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        jazzandblues
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="filipino" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        filipino
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="singaporean" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        singaporean
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="british" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        british
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="whiskeybars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        whiskeybars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="brazilian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        brazilian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="brasseries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        brasseries
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="divebars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        divebars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="popuprestaurants" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        popuprestaurants
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="musicvenues" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        musicvenues
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="fishnchips" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        fishnchips
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hookah_bars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hookah_bars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hkcafe" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hkcafe
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="ethiopian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        ethiopian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="kebab" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        kebab
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="argentine" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        argentine
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="coffeeroasteries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        coffeeroasteries
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="beergardens" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        beergardens
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="belgian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        belgian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="georgian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        georgian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="german" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        german
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cafeteria" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cafeteria
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="ukrainian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        ukrainian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cheesesteaks" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cheesesteaks
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="karaoke" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        karaoke
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="dinnertheater" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        dinnertheater
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tea" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tea
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="speakeasies" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        speakeasies
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="himalayan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        himalayan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="donuts" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        donuts
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cheese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cheese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="senegalese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        senegalese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="seafoodmarkets" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        seafoodmarkets
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bangladeshi" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bangladeshi
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="persian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        persian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="scandinavian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        scandinavian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="meats" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        meats
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="basque" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        basque
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tuscan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tuscan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="themedcafes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        themedcafes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pianobars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pianobars
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="colombian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        colombian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="raw_food" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        raw_food
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bookstores" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bookstores
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="organic_stores" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        organic_stores
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="markets" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        markets
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="danceclubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        danceclubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="russian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        russian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="arcades" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        arcades
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="afghani" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        afghani
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="theater" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        theater
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="egyptian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        egyptian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="healthmarkets" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        healthmarkets
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="galleries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        galleries
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="haitian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        haitian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gelato" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gelato
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="austrian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        austrian
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="portuguese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        portuguese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cupcakes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cupcakes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="comedyclubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        comedyclubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cakeshop" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cakeshop
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="smokehouse" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        smokehouse
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="publicmarkets" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        publicmarkets
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="salvadoran" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        salvadoran
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="supperclubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        supperclubs
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="foodtours" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        foodtours
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="beverage_stores" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        beverage_stores
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="sicilian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        sicilian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="venezuelan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        venezuelan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cabaret" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cabaret
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="intlgrocery" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        intlgrocery
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="indonesian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        indonesian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="importedfood" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        importedfood
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="eventplanning" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        eventplanning
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="uzbek" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        uzbek
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tobaccoshops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tobaccoshops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="souvenirs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        souvenirs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="vapeshops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        vapeshops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hungarian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hungarian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pretzels" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pretzels
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="movietheaters" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        movietheaters
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="breweries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        breweries
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="burmese" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        burmese
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="butcher" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        butcher
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="chocolate" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        chocolate
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cookingclasses" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cookingclasses
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="customcakes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        customcakes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="festivals" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        festivals
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="fondue" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        fondue
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="poutineries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        poutineries
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gaybars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gaybars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="giftshops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        giftshops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="laotian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        laotian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="gardening" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        gardening
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="personalchefs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        personalchefs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="pancakes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        pancakes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="media" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        media
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="diyfood" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        diyfood
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="tikibars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        tikibars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="scottish" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        scottish
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="culturalcenter" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        culturalcenter
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="petadoption" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        petadoption
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="piadina" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        piadina
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="champagne_bars" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        champagne_bars
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cannabisdispensaries" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cannabisdispensaries
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cannabiscollective" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cannabiscollective
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="candy" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        candy
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="cambodian" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        cambodian
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="polish" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        polish
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="poolhalls" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        poolhalls
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="popupshops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        popupshops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="vintage" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        vintage
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bowling" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bowling
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="walkingtours" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        walkingtours
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="wedding_planning" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        wedding_planning
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="boattours" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        boattours
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="boating" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        boating
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="womenscloth" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        womenscloth
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="bikes" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        bikes
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="czech" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        czech
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="eritrean" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        eritrean
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="social_clubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        social_clubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="headshops" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        headshops
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="nonprofit" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        nonprofit
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hotels" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hotels
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="southafrican" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        southafrican
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="honey" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        honey
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="honduran" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        honduran
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="homedecor" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        homedecor
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="spas" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        spas
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="herbsandspices" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        herbsandspices
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="sports_clubs" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        sports_clubs
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="srilankan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        srilankan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="farmersmarket" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        farmersmarket
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hair" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hair
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="hainan" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        hainan
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="shavedice" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        shavedice
+                        </label>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="paintandsip" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        paintandsip
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="food" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        food
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="permanentmakeup" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        permanentmakeup
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="florists" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        florists
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="floraldesigners" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        floraldesigners
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="teppanyaki" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        teppanyaki
+                        </label>
+                        </div>
+                        <div class="form-check col">
+                        <input class="form-check-input" type="checkbox" value="yoga" id="flexCheckDefault" name="filter">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        yoga
+                        </label>
+                        </div>
                     </div>
 
                   </div>
                     <input class="btn btn-primary mt-3" type="submit" value="Submit">
                 </form>
               </div>
-              <div id="restWidget" class="card" style="display: none;">
-                <img id="restImg" src="" class="card-img-top" alt="Restaurant Image">
-                <div class="card-body">
-                  <div id="restName" class="card-header">
-                    Featured
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li id="restLocation" class="list-group-item">A third item</li>
-                    <li id="restRating" class="list-group-item">An item</li>
-                    <li id="restCats" class="list-group-item">A second item</li>
-                    <li id="restPrice" class="list-group-item">A third item</li>
-                    <li id="restDelivery" class="list-group-item">A third item</li>
-                    <li id="restPickup" class="list-group-item">A third item</li>
-                    <li id="restAlcohol" class="list-group-item">A third item</li>
-                    <li id="restSanitation" class="list-group-item">A third item</li>
-                  </ul>
-                  <form action="/addRestaurant" id="saveRestaurantForm"  method="POST" onclick="getPageNumber()">
-                    <input type="hidden" id="data" name="hiddenPayload" value="{{addresses}}">
-                    <input type="hidden" id="favoriteRestaurant" name="hiddenRestaurant" value="">
-                    <input id="addRes" class="btn btn-primary mt-3" type="button" value="Save">
-                    <input type="hidden" id="pageNumber" name="pageNumber" value="{{pageNumber}}">
-                  </form>
-                </div>
-              </div>
-          </div>
-          <div>
-
           </div>
          </div>
-
-        <div class="col-10" >
-          <div id="map"></div>
-          
-  <input type="button" onclick="previousPage()" value="previous">
-  <input type="button" onclick="nextPage()" value="next">
-  <div id="displayPageNumber">Page {{pageNumber}}</div>
+         <div id="restWidget" class="card" style="display: none; width: 25%; margin: auto;">
+            <img id="restImg" src="" class="card-img-top" alt="Restaurant Image">
+            <div class="card-body">
+              <div id="restName" class="card-header">
+                Featured
+              </div>
+              <ul class="list-group list-group-flush">
+                <li id="restLocation" class="list-group-item">A third item</li>
+                <li id="restRating" class="list-group-item">An item</li>
+                <li id="restCats" class="list-group-item">A second item</li>
+                <li id="restPrice" class="list-group-item">A third item</li>
+                <li id="restDelivery" class="list-group-item">A third item</li>
+                <li id="restPickup" class="list-group-item">A third item</li>
+                <li id="restAlcohol" class="list-group-item">A third item</li>
+                <li id="restSanitation" class="list-group-item">A third item</li>
+              </ul>
+              <form action="/addRestaurant" id="saveRestaurantForm"  method="POST" onclick="getPageNumber()">
+                <input type="hidden" id="data" name="hiddenPayload" value="{{addresses}}">
+                <input type="hidden" id="favoriteRestaurant" name="hiddenRestaurant" value="">
+                <input id="addRes" class="btn btn-primary mt-3" type="button" value="Save">
+                <input type="hidden" id="pageNumber" name="pageNumber" value="{{pageNumber}}">
+              </form>
+            </div>
+          </div>
+          <div id="map" style="width:70%; margin: auto;" ></div>
+        
+  <div id="displayPageNumber">
+    <input type="button" onclick="previousPage()" value="previous">
+    <input type="button" onclick="nextPage()" value="next">
+    Page {{pageNumber}}
+  </div>
 
   <!-- <div id="data" class="{{addresses}}"></div> -->
 
