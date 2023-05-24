@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100%  */
-     .row.content {height: 550px}
+     .row.content {height: 100%}
 
     /* Set gray background color and 100% height */
     .sidenav {
@@ -66,7 +66,8 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h3> Page Description</h3>
+      <br>
+      <h3> Features </h3>
 
         <h4>Dashboard</h4>
         <p>Use dashboard to generate a map of NYC Resturants fitting filter critera by checking off boxes and hitting submit. Use the previous and next buttons to naviagte through the results. Click on pins to discover more about the restuarant.</p>
@@ -78,8 +79,18 @@
     </div>
 
     <div class="col-sm-9">
+      <br>
       <h2>{{ username }}, Welcome to Restaurant Surfer!</h2>
-      <p>Restaurant Surfer is a data visualization tool that utilizes various resturants dataset to provide users the ability to find their dream restaurant. Users can filter by food type, dietary restrictions,and more. Users can also view restaurants on an embedded map and view their Yelp rating, price data, sanitation grade, delivery and takeout options, and whether the restuarants serve alcohol.</p>
+      <br>
+      <p style = "font-size:large;">Restaurant Surfer is a data visualization tool that utilizes various resturants dataset to provide users the ability to find their dream restaurant. Users can filter by food type, dietary restrictions, and more. Users can also view restaurants on an embedded map and view their Yelp rating, price data, sanitation grade, delivery and takeout options, and whether the restuarants serve alcohol.</p>
+      <br>
+      <p> APIS used: </p>
+      <ul>
+        <li><a href="https://developers.google.com/maps">Google Maps API</a></li>
+        <li><a href="https://fusion.yelp.com/">Yelp Fusion API</a></li>
+      </ul>
+      <br>
+      View GitHub repo <a href="https://github.com/elizabethpaperno/P4-Electron">here</a>
       <br><br>
     </div>
     <div class="footer" id = "foot">

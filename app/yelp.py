@@ -191,16 +191,16 @@ def getPrice(df, address):
 def getDelieveryYN(df, address):
     df_filt = df[df["formatted_address"] == address]
     if(df_filt.iloc[0]['delivery'] == 1):
-        return ("delivery available")
+        return ("Delivery Offered")
     else:
-        return ("delivery not available")
+        return ("Delivery Not Offered")
 
 def getPickupYN(df, address):
     df_filt = df[df["formatted_address"] == address]
     if(df_filt.iloc[0]['pickup'] == 1):
-        return ("takeout available")
+        return ("Takeout Offered")
     else:
-        return ("pickup not available")
+        return ("Takeout Not Offered")
 
 def getFullFormattedAddress(df,address):
     df_filt = df[df["address"] == address]

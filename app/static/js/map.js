@@ -34,6 +34,8 @@ const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
 }
 
 var createWidget = (title) => {
+  //map.setZoom(8);
+  //map.setCenter(a.getPosition() as google.maps.LatLng);
   const widgetArea = document.getElementById("restWidget");
   const namePlace = document.getElementById("restName")
   const ratingPlace = document.getElementById("restRating")
@@ -46,7 +48,7 @@ var createWidget = (title) => {
   const alcoholPlace = document.getElementById("restAlcohol")
   const sanitationPlace = document.getElementById("restSanitation")
   const resForm = document.getElementById("saveRestaurantForm")
-  
+
   widgetArea.style.display = "block"
 
   var data = title.split(",")
@@ -59,7 +61,7 @@ var createWidget = (title) => {
   var cats = ""
   // console.log(name)
   // console.log(rating)
-  
+
   var skip = true
   var price= "Price not available"
   for (var i = 0; i < data.length; i=i){
@@ -87,7 +89,7 @@ var createWidget = (title) => {
     location += data.shift()
     //console.log(location)
     if (data.length===0){
-      
+
     }
     else {
       location +=","
@@ -104,7 +106,7 @@ var createWidget = (title) => {
   imgPlace.src=img
   alcoholPlace.innerHTML = alcohol
   sanitationPlace.innerHTML = sanitation
-  
+
   const saveButton = document.getElementById("addRes")
   var saving = (sb)=> {
     var toSave = document.getElementById("favoriteRestaurant");
@@ -114,17 +116,17 @@ var createWidget = (title) => {
     sb.type="submit"
     //resForm.action = "/addRestaurant"
     sb.submit()
-    
-    
+
+
   }
-  
+
   saveButton.addEventListener("click" , ()=>{
     saving(saveButton)
   })
-  
-  
-  
-  
+
+
+
+
   // console.log(cats)
   // console.log(data)
   // console.log(location)
@@ -139,7 +141,7 @@ var createWidget = (title) => {
   //console.log(title)
   //createLikedRestTable()
   //addRestaurant("blah",location)
-  //preparePayload() 
+  //preparePayload()
 }
 
 function preparePayload(){
@@ -252,9 +254,9 @@ window.addEventListener("load", (event) => {
     }
 
   listLength = list.length
-  
+
   //console.log(finalList)
-  
+
   for (var i = 0; i < local_end ; i++) {
     console.log(typeof finalList[i])
     console.log(i)
@@ -277,7 +279,7 @@ function switchPage() {
     //delete markers
     for (let i = 0; i < markerList.length; i++) {
         markerList[i].setMap(null);
-    } 
+    }
     markerList = []
 
     local_end = end
@@ -285,7 +287,7 @@ function switchPage() {
     if (local_end > listLength) {
         local_end = listLength-1
     }
-    
+
     //console.log(local_end)
     // undefined error is caused by wrong index of local end
 
@@ -315,7 +317,7 @@ function nextPage() {
 }
 
 function previousPage() {
-  
+
     if (end > 100){
         start = start - 100
         end = end - 100
