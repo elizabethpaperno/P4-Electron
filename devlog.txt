@@ -264,6 +264,17 @@ abidT -- 2023-05-23 12:30
 --------------------------------------------------------------
 - created complete HTML and CSS page to display to users their favorite restaurants as cards
 
+abidT -- 2023-05-23 13:15
+--------------------------------------------------------------
+- Created python function that generates HTML cards for each restaurant by acquiring information about each restaurant through database addresses
+- Fixed bug where html string from python function was being treated as a literal string rather than being interpreted as HTML in the saved restaurants page
+
+abidT -- 2023-05-23 23:15
+--------------------------------------------------------------
+- Fixed error where there were trailing commas in the categories section of the restaurant widgets
+- Updated restaurant logo
+- Updated nav bar with logo and fixed spelling errors
+- Fixed improper nav bar in the recommendations page
 
 jefferyT -- 2023-05-24 01:07
 --------------------------------------------------------------
